@@ -1,11 +1,36 @@
 var NAVTREE =
 [
-  [ "Roomba Library", "index.html", ]
+  [ "Roomba Library", "index.html", [
+    [ "Veraltete Elemente", "deprecated.html", null ],
+    [ "Module", "modules.html", "modules" ],
+    [ "Datenstrukturen", null, [
+      [ "Datenstrukturen", "annotated.html", "annotated" ],
+      [ "Datenstruktur-Verzeichnis", "classes.html", null ],
+      [ "Datenstruktur-Elemente", "functions.html", [
+        [ "Alle", "functions.html", null ],
+        [ "Variablen", "functions_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Dateien", null, [
+      [ "Auflistung der Dateien", "files.html", "files" ],
+      [ "Datei-Elemente", "globals.html", [
+        [ "Alle", "globals.html", "globals_dup" ],
+        [ "Funktionen", "globals_func.html", null ],
+        [ "Variablen", "globals_vars.html", null ],
+        [ "Typdefinitionen", "globals_type.html", null ],
+        [ "Aufzählungen", "globals_enum.html", null ],
+        [ "Aufzählungswerte", "globals_eval.html", null ],
+        [ "Makrodefinitionen", "globals_defs.html", null ]
+      ] ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"annotated.html",
+"group__roomba__sensor__group.html#ga9cfca0f2cbbbcdc82af10f9fbb60d440",
+"roomba__def_8h.html#gaff12a3021e710d16a58d6ad04ae4382d"
 ];
 
 var SYNCONMSG = 'Klicken um Panelsynchronisation auszuschalten';
