@@ -3,6 +3,8 @@ roomba-c-library
 
 Platform independent (unofficial) IRobot Roomba SCI/OI C Library
 
+Test on IRobot Roomba 780
+
 This library is based on a seminar paper by Andreas Werner at the Rhein Main University of Applied Sciences
 
 This Libaray was implemented as part of the course Emebet system in the summer Semester 2013
