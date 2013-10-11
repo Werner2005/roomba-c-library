@@ -1,0 +1,365 @@
+\hypertarget{roomba__def_8h}{\section{/home/andreas/roomba/lib/includes/roomba\-\_\-def.h-\/\-Dateireferenz}
+\label{roomba__def_8h}\index{/home/andreas/roomba/lib/includes/roomba\-\_\-def.\-h@{/home/andreas/roomba/lib/includes/roomba\-\_\-def.\-h}}
+}
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+\subsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structroombaCommand}{roomba\-Command}
+\item 
+struct \hyperlink{structroombaSensorData}{roomba\-Sensor\-Data}
+\end{DoxyCompactItemize}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__roomba__def_ga53c32c129fde6d7594f43690d6d81d97}{R\-O\-O\-M\-B\-A\-\_\-\-M\-A\-X\-\_\-\-D\-A\-T\-A}~66
+\item 
+\#define \hyperlink{group__roomba__error_ga0a39892f929595e9e6dfff67ef25f593}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-N\-O}~0x00
+\item 
+\#define \hyperlink{group__roomba__error_ga3b04cf6a702280d61f12860ce3ce6263}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L}~0x01
+\item 
+\#define \hyperlink{group__roomba__error_ga576b76b11e017abce9f7ff99b4b7161e}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-N\-O\-\_\-\-S\-I\-G\-N\-\_\-\-E\-X\-P\-E\-C\-T\-E\-D}~0x02
+\item 
+\#define \hyperlink{group__roomba__error_ga05101b46c99b86cf46f59d1238ca7298}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-W\-R\-I\-T\-E}~0x03
+\item 
+\#define \hyperlink{group__roomba__error_ga685837574afe13c559db50cb9b5c012a}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-T\-O\-\_\-\-B\-I\-G}~0x04
+\item 
+\#define \hyperlink{group__roomba__error__stream_gaccb52301b5b2449935f09b113b19b2b2}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}~0x05
+\item 
+\#define \hyperlink{group__roomba__error__stream_ga951d522c2e15b1bb9b1e7367a0124e12}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-E\-N\-S\-O\-R\-I\-D\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}~0x06
+\item 
+\#define \hyperlink{group__roomba__error__stream_ga2ee060350797b7c170ffcd035e40a034}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-C\-H\-E\-C\-K\-S\-U\-M\-\_\-\-N\-O\-T\-\_\-\-V\-A\-L\-I\-D}~0x07
+\item 
+\#define \hyperlink{group__roomba__error_gad35f7cffbb363514d9453cea041593e4}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-A\-G\-A\-I\-N}~0x08
+\item 
+\#define \hyperlink{group__roomba__error_gafb6db822e9e4a47ec7a987c717830202}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L\-\_\-\-S\-T\-R\-E\-A\-M}~0x09
+\item 
+\#define \hyperlink{group__roomba__error_ga5b9531ddf3975bb8be2529f61e9709cd}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L\-\_\-\-C\-H\-A\-R}~0x0a
+\item 
+\#define \hyperlink{group__roomba__error_ga225b79c08707c02fe85f6ab72a339270}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N\-\_\-\-F\-A\-U\-L\-T}~0x0b
+\item 
+\#define \hyperlink{group__roomba__error_gaacd25ee9912b9e5c47373ac43eba1830}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-A\-B\-O\-R\-T\-\_\-\-S\-E\-N\-S\-O\-R}~0x0c
+\item 
+\#define \hyperlink{group__roomba__commands__start_gaf1978389e19799d1dbf5e66303e86042}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-A\-R\-T}~128
+\item 
+\#define \hyperlink{group__roomba__commands__start_gabfcf91bce948fc3990510ad173e9e2ba}{R\-O\-O\-M\-B\-A\-\_\-\-B\-A\-U\-D}~129
+\item 
+\#define \hyperlink{group__roomba__command__mode_ga58b7e7ff9b7fd032d5399403fbfe4ed1}{R\-O\-O\-M\-B\-A\-\_\-\-S\-A\-F\-E}~131
+\item 
+\#define \hyperlink{group__roomba__command__mode_ga3d2cc8c07888194269d59f884677a7f7}{R\-O\-O\-M\-B\-A\-\_\-\-F\-U\-L\-L}~132
+\item 
+\#define \hyperlink{group__roomba__commands__clean_gad7000006fd0c76b02fe0104236929bc9}{R\-O\-O\-M\-B\-A\-\_\-\-C\-L\-E\-A\-N}~135
+\item 
+\#define \hyperlink{group__roomba__commands__clean_ga1b7bd60b7ae1d7268b5b9f6313d97968}{R\-O\-O\-M\-B\-A\-\_\-\-M\-A\-X}~136
+\item 
+\#define \hyperlink{group__roomba__commands__clean_ga320c7d7d833d22b3040f0575f19fd6e3}{R\-O\-O\-M\-B\-A\-\_\-\-S\-P\-O\-T}~134
+\item 
+\#define \hyperlink{group__roomba__commands__clean_ga72e1f19b34da8d7659728d4b2fb6c8c7}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-E\-K\-\_\-\-D\-O\-C\-K}~143
+\item 
+\#define \hyperlink{group__roomba__commands__clean_gadb4e4068df85b8ae807bd81bba4cd48e}{R\-O\-O\-M\-B\-A\-\_\-\-S\-C\-H\-E\-D\-U\-L\-E}~167
+\item 
+\#define \hyperlink{group__roomba__commands__clean_gab0a596543df5f5c2dc57dc78fcb11a1d}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-T\-\_\-\-T\-I\-M\-E\-\_\-\-D\-A\-T\-E}~168
+\item 
+\#define \hyperlink{group__roomba__commands__clean_gaf03948b7555c48fca7d01a6bbfb1cc67}{R\-O\-O\-M\-B\-A\-\_\-\-P\-O\-W\-E\-R}~133
+\item 
+\#define \hyperlink{group__roomba__commands__motor_gacf921626edb00b06fbdf86312d8c7341}{R\-O\-O\-M\-B\-A\-\_\-\-D\-R\-I\-V\-E}~137
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga26e08e4c9584dfc518700fd299eddc96}{R\-O\-O\-M\-B\-A\-\_\-\-D\-R\-I\-V\-E\-\_\-\-D\-I\-R\-E\-C\-T}~145
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga513cf01360599037868593fc9525bd6e}{R\-O\-O\-M\-B\-A\-\_\-\-D\-R\-I\-V\-E\-\_\-\-P\-W\-M}~146
+\item 
+\#define \hyperlink{group__roomba__commands__motor_gadf0186e2adef9b3aa86daf2deb35e0ff}{R\-O\-O\-M\-B\-A\-\_\-\-M\-O\-T\-O\-R\-S}~138
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga7fba3d9876ee967f6bbefc85a05e8fed}{R\-O\-O\-M\-B\-A\-\_\-\-M\-O\-T\-O\-R\-S\-\_\-\-P\-W\-M}~144
+\item 
+\#define \hyperlink{group__roomba__commands__motor_gab8173cfeebe0443357775116393d5964}{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-S}~139
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga9c8923fd04b3275a57ca487f34990743}{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-S\-\_\-\-S\-C\-H\-E\-D\-U\-L\-I\-N\-G}~162
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga1ea5e809eb83d4bf5dd6a6f33dabffae}{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-S\-\_\-\-D\-I\-G\-I\-T\-\_\-\-R\-A\-W}~163
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga72bfc393689d5c9aa839df84e21888f7}{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-S\-\_\-\-D\-I\-G\-I\-T\-\_\-\-A\-S\-C\-I\-I}~164
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga57cbce423408ed2ed3595f504ec300cb}{R\-O\-O\-M\-B\-A\-\_\-\-B\-U\-T\-T\-O\-N\-S}~165
+\item 
+\#define \hyperlink{group__roomba__commands__motor_gade5b4a0d2f24f3f551bf43aedbf6e653}{R\-O\-O\-M\-B\-A\-\_\-\-S\-O\-N\-G}~140
+\item 
+\#define \hyperlink{group__roomba__commands__motor_ga47c9ccefb9e9e34108cc37339ae60f58}{R\-O\-O\-M\-B\-A\-\_\-\-P\-L\-A\-Y}~141
+\item 
+\#define \hyperlink{group__roomba__commands__script_gaedc1545f209e018c642304017cfaf2fd}{R\-O\-O\-M\-B\-A\-\_\-\-S\-C\-R\-I\-P\-T}~152
+\item 
+\#define \hyperlink{group__roomba__commands__script_ga707a46afb7619d327842a514a710564b}{R\-O\-O\-M\-B\-A\-\_\-\-S\-C\-R\-P\-T\-T\-\_\-\-P\-L\-A\-Y}~153
+\item 
+\#define \hyperlink{group__roomba__commands__script_gaf2d55738cfa4028ef7e8d2dbf790fb89}{R\-O\-O\-M\-B\-A\-\_\-\-S\-C\-R\-I\-P\-T\-\_\-\-S\-H\-O\-W}~154
+\item 
+\#define \hyperlink{group__roomba__commands__script_ga4712c8a22bafc8e7104b2a207d9c967b}{R\-O\-O\-M\-B\-A\-\_\-\-W\-A\-I\-T\-\_\-\-T\-I\-M\-E}~155
+\item 
+\#define \hyperlink{group__roomba__commands__script_ga909e911073bb99a67c67fb879f7f9e33}{R\-O\-O\-M\-B\-A\-\_\-\-W\-A\-I\-T\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E}~156
+\item 
+\#define \hyperlink{group__roomba__commands__script_ga6f379b056533fe8ed77e7b92018a430b}{R\-O\-O\-M\-B\-A\-\_\-\-W\-A\-I\-T\-\_\-\-A\-N\-G\-L\-E}~157
+\item 
+\#define \hyperlink{group__roomba__commands__script_gaacbdc16c0a8a665126403d53c976199f}{R\-O\-O\-M\-B\-A\-\_\-\-W\-A\-I\-T\-\_\-\-E\-V\-E\-N\-T}~158
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga4eebf2abe2913b98d714bcd93c658c74}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-W\-H\-E\-E\-L\-\_\-\-D\-R\-O\-P}~1
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gaff8a531948edbc08b3fb449f107466ef}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-W\-H\-E\-E\-L\-\_\-\-D\-R\-O\-P\-\_\-\-F\-R\-O\-N\-T}~2
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gae7dfae87ada8f7c6aaa98b0ecffc090c}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-W\-H\-E\-E\-L\-\_\-\-D\-R\-O\-P\-\_\-\-L\-E\-F\-T}~3
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gaf928fb78e7eab93c3540adb82592d518}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-W\-H\-E\-E\-L\-\_\-\-D\-R\-O\-P\-\_\-\-R\-I\-G\-H\-T}~4
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga6fed35d5354c1704c50a187b627dfc2b}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-B\-U\-M\-P}~5
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga0482e8ee9761dcf0cac034f4f84736cc}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-B\-U\-M\-P\-\_\-\-L\-E\-F\-T}~6
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga1bc0c83f630a508bb93fb835319ae5d8}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-B\-U\-M\-P\-\_\-\-R\-I\-G\-H\-T}~7
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gab5292c9a99dbcb17462690209f352d1f}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-V\-I\-R\-T\-U\-A\-L\-\_\-\-W\-A\-L\-L}~8
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gafff9142d4afb58ceb092bd3c8728cc17}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-W\-A\-L\-L}~9
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gad53e45acc2e86e6eab42021192014d34}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-C\-L\-I\-F\-F}~10
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga58ae899c463cd158943e4646924b3c5a}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-C\-L\-I\-F\-F\-\_\-\-L\-E\-F\-T}~11
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga0ae644c17b934d8ad768192739e2a3f3}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-C\-L\-I\-F\-F\-\_\-\-F\-R\-O\-N\-T\-\_\-\-L\-E\-F\-T}~12
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga48f1c14b4eab39d310b8a7a0a4cbde37}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-C\-L\-I\-F\-F\-\_\-\-F\-R\-O\-N\-T\-\_\-\-R\-I\-G\-H\-T}~13
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga909a47a9a68dadcc36484272cec3d4e1}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-C\-L\-I\-F\-F\-\_\-\-R\-I\-G\-H\-T}~14
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga9cd72009fa71675ebd5ba114992608e1}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-H\-O\-M\-E\-\_\-\-B\-A\-S\-E}~15
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gac93cc3e3f8e0112938ef8a83cc006730}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-A\-D\-V\-A\-N\-C\-E\-\_\-\-B\-U\-T\-T\-O\-N}~16
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gadf6834b68b824979eb91b6c9bc6c9282}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-P\-L\-A\-Y\-\_\-\-B\-U\-T\-T\-O\-N}~17
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_gaa49e60a3f726cf6e262362d0f52df67f}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-D\-I\-G\-I\-T\-A\-L\-\_\-\-I\-N\-P\-U\-T\-\_\-0}~18
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga12b482ef0b1754ad9970df9c6db2ec19}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-D\-I\-G\-I\-T\-A\-L\-\_\-\-I\-N\-P\-U\-T\-\_\-1}~19
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga553356ae1fbd8452f1e45b143e50498d}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-D\-I\-G\-I\-T\-A\-L\-\_\-\-I\-N\-P\-U\-T\-\_\-2}~20
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga86d73c5e951e0adf15d1d1139a007fbb}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-D\-I\-G\-I\-T\-A\-L\-\_\-\-I\-N\-P\-U\-T\-\_\-3}~21
+\item 
+\#define \hyperlink{group__roomba__commands__script__events_ga77f8428e2ea516fc82c887b3061f3c36}{R\-O\-O\-M\-B\-A\-\_\-\-E\-V\-N\-E\-T\-\_\-\-O\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-A\-S\-S\-I\-V\-E}~22
+\item 
+\#define \hyperlink{group__roomba__commands__sensor_gaef0d27b1b9b49c6aaa0a7241e7e41201}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-S}~142
+\item 
+\#define \hyperlink{group__roomba__commands__sensor_gaa4ae696773b751ed0b4828ebe3861d69}{R\-O\-O\-M\-B\-A\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-L\-I\-S\-T}~149
+\item 
+\#define \hyperlink{group__roomba__commands__sensor_gafc6423e54083bd2b1abc99198bbbf739}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M}~148
+\item 
+\#define \hyperlink{group__roomba__commands__sensor_ga6389061ebdb4feec1198ea5c4f6fae55}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-U\-S\-E\-\_\-\-R\-E\-S\-U\-M\-E}~150
+\item 
+\#define \hyperlink{group__roomba__commands__extra_ga4df72d1f10ba6ced0986ce73225772f1}{R\-O\-O\-M\-B\-A\-\_\-\-E\-X\-T\-R\-A\-\_\-\-S\-T\-R\-E\-A\-M}~200
+\item 
+\#define \hyperlink{group__roomba__commands__extra_ga0bea168edae0eebe638d2aa678c3f6e2}{R\-O\-O\-M\-B\-A\-\_\-\-E\-X\-T\-R\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-U\-S\-E\-\_\-\-R\-E\-S\-U\-M\-E}~201
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga77d5511be2897e760d980fdb72840e65}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-0}~0
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga38f6f829286f9fbce79fbfa0f47e7ce4}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-0\-\_\-\-S\-I\-Z\-E}~26
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gac775409360135a757f9932b7bb65896a}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-0\-\_\-\-S\-T\-A\-R\-T}~7
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gaf797d39d4530ad605020d16be9f82350}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-0\-\_\-\-S\-T\-O\-P}~26
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga40a35c78fe86679d04381b8c69488766}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-1}~1
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga45360e7f26b3583cc2fa6fb81ca8ec88}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-1\-\_\-\-S\-I\-Z\-E}~10
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gac513223be40b9c57825220a3eff40ce6}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-1\-\_\-\-S\-T\-A\-R\-T}~7
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gac153692abb4392b8bbf4bec1247c1d36}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-1\-\_\-\-S\-T\-O\-P}~16
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gae33ca23697871d5efba5ad6c3ed313b6}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-2}~2
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gaff12a3021e710d16a58d6ad04ae4382d}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-2\-\_\-\-S\-I\-Z\-E}~6
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga94d3aed8b9f236cc333d9d09be2fe843}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-2\-\_\-\-S\-T\-A\-R\-T}~17
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga22518aa318dac5e32015423c1ed53a17}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-2\-\_\-\-S\-T\-O\-P}~20
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga1494e5fb5305016e8b6d01f5733f87db}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-3}~3
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga3ba7802db1abcdead2df2c3de06bd5a0}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-3\-\_\-\-S\-I\-Z\-E}~10
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga66328f6ebdb3c0e1dbe9a58ff478c9ce}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-3\-\_\-\-S\-T\-A\-R\-T}~21
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga00e9abfcc71ee460f3844e257d8bc3c7}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-3\-\_\-\-S\-T\-O\-P}~26
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gac5b1a680645329aca347a0eeddc8e89c}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-4}~4
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gaab619a0f35cf62bba045ac5a645950c0}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-4\-\_\-\-S\-I\-Z\-E}~14
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga60468a9e12ec7280ebcfa8d72cbb21f1}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-4\-\_\-\-S\-T\-A\-R\-T}~27
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga59e22d23bd3d4b1470777a608bcd01fb}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-4\-\_\-\-S\-T\-O\-P}~34
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga2a092d053a2348341535f789206b9069}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-5}~5
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga4df9b155dba5dccf8cd425a49beb69f2}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-5\-\_\-\-S\-I\-Z\-E}~12
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga08860f258b4fdca4fcfb4e1777a46e78}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-5\-\_\-\-S\-T\-A\-R\-T}~35
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga0fbbe29bfc4a6b811907c63037152957}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-5\-\_\-\-S\-T\-O\-P}~42
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga499cb0407da4e5ca807a2a3b46010e7a}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-6}~6
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gae2eb5f26db89231034d7e55ca4656d1f}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-6\-\_\-\-S\-I\-Z\-E}~52
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gaf2d303f7f37e41373c876adee8db9d43}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-6\-\_\-\-S\-T\-A\-R\-T}~7
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga9cfca0f2cbbbcdc82af10f9fbb60d440}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-6\-\_\-\-S\-T\-O\-P}~42
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga7f009c7382f552989be953ba6fefdb54}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-100}~100
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga40b8003d68cb76448bed3689c2351b7a}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-100\-\_\-\-S\-I\-Z\-E}~93
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gab34012c2bb0d979b8e2b0cf13dbcac75}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-100\-\_\-\-S\-T\-A\-R\-T}~7
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga7aa408f14c5e440472a1d50d5d94c1bd}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-100\-\_\-\-S\-T\-O\-P}~71
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gac5e76f90edbe17f9f1a51514c9137a3c}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-101}~101
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga40e7b655a97868ad2821671735733261}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-101\-\_\-\-S\-I\-Z\-E}~28
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga7828ffaa8bf348be22cf2d044c36fbe4}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-101\-\_\-\-S\-T\-A\-R\-T}~43
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga408b89d656a6b650bc0f742dc195e53e}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-101\-\_\-\-S\-T\-O\-P}~58
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga2fb3c06950071ca647d51f875c03144c}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-106}~106
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gafa200ace1c478ae042b3a7bdf0ca3f7e}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-106\-\_\-\-S\-I\-Z\-E}~12
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gabd95e3fa549a13bf2476ab3a6400b7c4}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-106\-\_\-\-S\-T\-A\-R\-T}~46
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gae1d47c305d9338da5ae5f1b5fe90e988}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-106\-\_\-\-S\-T\-O\-P}~51
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga7c4ea4d5c016ce39f8c88af39c4d87f8}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-107}~107
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga68caeb0c956abb46fe19b1f7b6ec502b}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-107\-\_\-\-S\-I\-Z\-E}~9
+\item 
+\#define \hyperlink{group__roomba__sensor__group_gac996d409d291828dc82c695853592e18}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-107\-\_\-\-S\-T\-A\-R\-T}~54
+\item 
+\#define \hyperlink{group__roomba__sensor__group_ga52c81df81177bca0049e27c482e6593a}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-107\-\_\-\-S\-T\-O\-P}~58
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga52d4985b7063d9a96315c241657620a3}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-M\-P\-S\-\_\-\-W\-H\-E\-E\-L\-\_\-\-D\-R\-O\-P\-S}~7
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga5398879cecaf2fcfb997b4e3cba53f88}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-W\-A\-L\-L}~8
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga6bad74dea95ee3a2f527377b59015828}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-L\-E\-F\-T}~9
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga81f46b587fc2bb45de93f8120dc400fc}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-F\-R\-O\-N\-T\-\_\-\-L\-E\-F\-T}~10
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga03cb42b133db401142781a61d2b890a3}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-F\-R\-O\-N\-T\-\_\-\-R\-I\-G\-H\-T}~11
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga6c983bf658c05be9c4200c3c81367765}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-R\-I\-G\-H\-T}~12
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga19246309d8a1e5f64cb634a6b54a40da}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-V\-I\-R\-T\-U\-A\-L\-\_\-\-W\-A\-L\-L}~13
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gac75ea0b65c42e3d5743e942051b8bdd0}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-W\-H\-E\-E\-L\-\_\-\-O\-V\-E\-R\-C\-U\-R\-R\-E\-N\-T\-S}~14
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga9edadcd2d5f80a64cea9464c352ee620}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-D\-I\-R\-T\-\_\-\-D\-E\-T\-E\-C\-T}~15
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gafeaaaef2638094e3785fa4e1388b17f7}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-U\-N\-U\-S\-E\-D\-\_\-1}~16
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga50e1d718f0d900d1eabaede5bf421ece}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-I\-N\-F\-R\-A\-R\-E\-D\-\_\-\-C\-H\-A\-R\-\_\-\-O\-M\-M\-I}~17
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga87e725b00eee9bdc973713630d69c44e}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-I\-N\-F\-R\-A\-R\-E\-D\-\_\-\-C\-H\-A\-R\-\_\-\-L\-E\-F\-T}~52
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gaf772750454c0449f52f75c7a8b09e21e}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-I\-N\-F\-R\-A\-R\-E\-D\-\_\-\-C\-H\-A\-R\-\_\-\-R\-I\-G\-H\-T}~53
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga3fe82b1e1eacfd04e29a9ea7b5321ecb}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-T\-T\-O\-N\-S}~18
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga1cd3dfb38c53d1928f8621520f36987a}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-D\-I\-S\-T\-A\-N\-C\-E}~19
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga274b9e8c77f7e8cd8dde6e3626aa817c}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-A\-N\-G\-L\-E}~20
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga5ee227b54819dd7bda9c0ceae020894f}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-W\-A\-L\-L\-\_\-\-S\-I\-G\-N\-A\-L}~27
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gadff44c6a461f2a29a0bcf4b4e5b9cbc9}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-L\-E\-F\-T}~28
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gab569695daa3b84987833ebbdcd7c515f}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-F\-R\-O\-N\-T\-\_\-\-L\-E\-F\-T}~29
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gaeca0c4a7481f53abf065e3e1fdf49663}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-F\-R\-O\-N\-T\-\_\-\-R\-I\-G\-H\-T}~30
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga64201310b3c0ee4b5fa24ff8cf92106d}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-L\-I\-F\-F\-\_\-\-S\-I\-G\-N\-A\-L\-\_\-\-R\-I\-G\-H\-T}~31
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga7e1760bf821a8181020bc860561b6e72}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-U\-N\-U\-S\-E\-D\-\_\-2}~32
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga3e5888caf144aa3f4d2ee2b6e15f3687}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-U\-N\-U\-S\-E\-D\-\_\-3}~33
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gaa6cf173183ac4ff400f7d12b399b09a4}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-R\-E\-Q\-U\-E\-S\-T\-E\-D\-\_\-\-V\-E\-L\-O\-C\-I\-T\-Y}~39
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga6c83dc8d27d9f2a22dc3435d9310ca00}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-R\-E\-Q\-U\-E\-S\-T\-E\-D\-\_\-\-R\-A\-D\-I\-U\-S}~40
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga99232d32e088b8719ab9752748e8b49f}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-R\-E\-Q\-U\-E\-S\-T\-E\-D\-\_\-\-V\-E\-L\-O\-C\-I\-T\-Y\-\_\-\-R\-I\-G\-H\-T}~41
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gafa7dd7ed1d3e67c8551e2be540c56956}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-R\-E\-Q\-U\-E\-S\-T\-E\-D\-\_\-\-V\-E\-L\-O\-C\-I\-T\-Y\-\_\-\-L\-E\-F\-T}~42
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gaec90dd94f95bc7cc663ca52c9a3e8371}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R\-\_\-\-C\-O\-U\-N\-T\-S\-\_\-\-R\-I\-G\-H\-T}~43
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga215bbf96794fd028ac7e389ec8b7c369}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-E\-N\-C\-O\-D\-E\-R\-\_\-\-C\-O\-U\-N\-T\-S\-\_\-\-L\-E\-F\-T}~44
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga403c15eb2bbf6d5fda5f648427c0ac88}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-L\-I\-G\-H\-T\-\_\-\-B\-U\-M\-P\-E\-R}~45
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga7d36f21a211ec98cfc7dde8051b2988e}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-L\-I\-G\-H\-T\-\_\-\-B\-U\-M\-P\-E\-R\-\_\-\-L\-E\-F\-T}~46
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga5e692dc0f496a559fe87ae71dd774cff}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-L\-I\-G\-H\-T\-\_\-\-B\-U\-M\-P\-E\-R\-\_\-\-F\-R\-O\-N\-T\-\_\-\-L\-E\-F\-T}~47
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gaa73e909a9a5eb54d2f96663086e5069c}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-L\-I\-G\-H\-T\-\_\-\-B\-U\-M\-P\-E\-R\-\_\-\-C\-E\-N\-T\-E\-R\-\_\-\-L\-E\-F\-T}~48
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga1e402b25d5ee61ea168860c210684339}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-L\-I\-G\-H\-T\-\_\-\-B\-U\-M\-P\-E\-R\-\_\-\-C\-E\-N\-T\-E\-R\-\_\-\-R\-I\-G\-H\-T}~49
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gaf4f0941fcd5728f52f3d546a5ff17eb1}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-L\-I\-G\-H\-T\-\_\-\-B\-U\-M\-P\-E\-R\-\_\-\-F\-R\-O\-N\-T\-\_\-\-R\-I\-G\-H\-T}~50
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_ga8b965879863e32e596c6e2f2121dd47b}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-L\-I\-G\-H\-T\-\_\-\-B\-U\-M\-P\-E\-R\-\_\-\-R\-I\-G\-H\-T}~51
+\item 
+\#define \hyperlink{group__roomba__sensor__extern_gad7992ba545cbb126b26e0123e84644a9}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-A\-S\-I\-S}~58
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga996bd41e2f66674069153469ddd81bc2}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-H\-A\-N\-G\-I\-N\-G\-\_\-\-S\-T\-A\-T\-E}~21
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_gabb81e3accaa18eb61bbbe3ebe3f30f41}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-V\-O\-L\-T\-A\-G\-E}~22
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga39e2a5775498c73671ae9b6baeef3cc6}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-U\-R\-R\-E\-N\-T}~23
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga85ef57858eeae88cc5df14dcf15b0b8f}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-T\-E\-M\-P\-E\-R\-A\-T\-U\-R\-E}~24
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_gaf36f587e37b046e2027f47122e90c077}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-A\-T\-T\-E\-R\-Y\-\_\-\-C\-H\-A\-R\-G\-E}~25
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga32f657606300ed2451da4f59ab907b20}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-A\-T\-T\-E\-R\-Y\-\_\-\-C\-A\-P\-A\-C\-I\-T\-Y}~26
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga5bc38d7d65a84eeb27a862ac7ac7368d}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-C\-H\-A\-R\-G\-I\-N\-G\-\_\-\-S\-O\-U\-R\-C\-E\-S\-\_\-\-A\-V\-A\-I\-L\-A\-B\-L\-E}~34
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_gaf6d24f3798d3c267ef8d2b5d56c1e28a}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-O\-I\-\_\-\-M\-O\-D\-E}~35
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga370ac0d8ea032e38d3587e25a0f4d328}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-O\-N\-G\-\_\-\-N\-U\-M\-B\-E\-R}~36
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_gadc00d563593ae5d1de005982df2896e9}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-O\-N\-G\-\_\-\-P\-L\-A\-Y\-I\-N\-G}~37
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_gaa3e69ebb1e0a7a12ac5d7cc3a5429c91}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-N\-U\-M\-B\-E\-R\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-C\-K\-E\-T\-S}~38
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga230f21929397657b919cc3862f7482ba}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-M\-O\-T\-O\-R\-\_\-\-C\-U\-R\-R\-E\-N\-T\-\_\-\-L\-E\-F\-T}~54
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga11625bf945cef37a45d3edf9f36887d5}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-M\-O\-T\-O\-R\-\_\-\-C\-U\-R\-R\-E\-N\-T\-\_\-\-R\-I\-G\-H\-T}~55
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_ga4c173abafe12ade9b1b5f09fc09ce334}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-M\-O\-T\-O\-R\-\_\-\-B\-R\-U\-S\-H\-\_\-\-M\-A\-I\-N}~56
+\item 
+\#define \hyperlink{group__roomba__sensor__intern_gaafa89ba622b84dee83a9328a64e2b669}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-M\-O\-T\-O\-R\-\_\-\-B\-R\-U\-S\-H\-\_\-\-S\-I\-D\-E}~57
+\item 
+\#define \hyperlink{group__roomba__oi__modes_ga161260ace993af2492a2edcc0110838d}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-O\-I\-\_\-\-M\-O\-D\-E\-\_\-\-O\-F\-F}~0
+\item 
+\#define \hyperlink{group__roomba__oi__modes_ga66261dece9fcb24410381451bde2c953}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-O\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-A\-S\-S\-I\-V\-E}~1
+\item 
+\#define \hyperlink{group__roomba__oi__modes_gac946396edec6f2dcdb9dff6d23453da4}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-O\-I\-\_\-\-M\-O\-D\-E\-\_\-\-S\-A\-F\-E}~2
+\item 
+\#define \hyperlink{group__roomba__oi__modes_ga6d0c469802b4fae5e9dddb922c0a1a6c}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-O\-I\-\_\-\-M\-O\-D\-E\-\_\-\-F\-U\-L\-L}~3
+\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structroombaCommand}{roomba\-Command} \hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t}
+\item 
+typedef struct \hyperlink{structroombaSensorData}{roomba\-Sensor\-Data} \hyperlink{group__roomba__def_gab15b5566c76fa573575afaccd593e86a}{roomba\-Sensor\-Data\-\_\-t}
+\end{DoxyCompactItemize}

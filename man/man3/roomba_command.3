@@ -1,0 +1,175 @@
+.TH "Roomba Command Libary" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Roomba Command Libary \- 
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROOMBA_LED_WAITTIME\fP   2000"
+.br
+.in -1c
+.SS "Funktionen"
+
+.in +1c
+.ti -1c
+.RI "void \fBroomba_command_init\fP (int8_t(*s)(\fBroombaCommand_t\fP *command), int(*ms)(unsigned int))"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_send\fP (uint8_t commandID, uint8_t size,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_start\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_drive\fP (int16_t velocity, int16_t radius)"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_showASCII\fP (char *string)"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_showHexLED\fP (uint16_t t)"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_extra_stream_start\fP (uint16_t ms, uint8_t size,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_extra_stream_stop\fP ()"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+In diesem Modul wird eine API definiert um vereinfacht und Standardisiert mit dem Roomba zu kommunizieren\&. 
+.SH "Makro-Dokumentation"
+.PP 
+.SS "#define ROOMBA_LED_WAITTIME   2000"
+Wartezeit die gewartet wird zwischen 4 Buchstaben
+.PP
+Wird von \fBroomba_showASCII\fP 
+.SH "Dokumentation der Funktionen"
+.PP 
+.SS "void roomba_command_init (int8_t(*)(\fBroombaCommand_t\fP *command)s, int(*)(unsigned int)ms)"
+Initialisiert Libary
+.PP
+\fBParameter:\fP
+.RS 4
+\fIs\fP sende Callback Funktion bekommt ein Kommando Übergeben das Versendet werden soll Diese Funktion soll einen Wert von < 0 zurück wenn ein Fehler aufgetreten ist
+.RE
+.PP
+Beispiel: über sdds an Roomba oder Sensorknoten über RS232 an Roomba \&.\&.\&. 
+.PP
+\fBParameter:\fP
+.RS 4
+\fIms\fP Funktion wie sleep\&. Dieser Callback soll eine bestimmte Zeit in Milisekunden warten\&. Dieser Callback wird für \fBroomba_showASCII()\fP benötigt 
+.RE
+.PP
+
+.SS "int8_t roomba_drive (int16_tvelocity, int16_tradius)"
+Einfacher Bewege Befehl Verwendet \fBROOMBA_DRIVE\fP
+.PP
+\fBParameter:\fP
+.RS 4
+\fIvelocity\fP Geschwindelt in mm/s (-500 - 500 mm/s) 
+.br
+\fIradius\fP in mm (-2000 mm - 2000 mm) 
+.RE
+.PP
+\fBRückgabe:\fP
+.RS 4
+< 0 Fehler aufgetreten >= 0 kein Fehler aufgetreten 
+.RE
+.PP
+
+.SS "int8_t roomba_extra_stream_start (uint16_tms, uint8_tsize, \&.\&.\&.)"
+Startet eine Sensor Stream
+.PP
+\fBWarnung:\fP
+.RS 4
+diese Funktion darf nicht zusammen mit der roomba\&.c verwendet werden!
+.RE
+.PP
+\fBParameter:\fP
+.RS 4
+\fIms\fP Perioden Dauer 
+.br
+\fIsize\fP Anzahl der SensorIDs 
+.br
+\fI\&.\&.\&.\fP SensorIDs 
+.RE
+.PP
+
+.SS "int8_t roomba_extra_stream_stop ()"
+Stoppt Sensor Stream
+.PP
+\fBWarnung:\fP
+.RS 4
+diese Funktion darf nicht zusammen mit der roomba\&.c verwendet werden! 
+.RE
+.PP
+
+.SS "int8_t roomba_send (uint8_tcommandID, uint8_tsize, \&.\&.\&.)"
+Sendet ein Befehl an den Roomba
+.PP
+\fBParameter:\fP
+.RS 4
+\fIcommandID\fP Kommando ID Beispiel: \fBROOMBA_START\fP 
+.br
+\fIsize\fP Anzahl der Daten Bytes 
+.br
+\fI\&.\&.\&.\fP Daten 
+.RE
+.PP
+\fBRückgabe:\fP
+.RS 4
+< 0 Fehler aufgetreten >= 0 kein Fehler aufgetreten 
+.RE
+.PP
+
+.SS "int8_t roomba_showASCII (char *string)"
+Zeigt ein Bestimmten Text auf der LED Anzeige des Roomba an Falls der Text > 4 Zeichen ist wird er in 4 Zeichen Sequenzen gesplittet und nacheinander in \fBROOMBA_LED_WAITTIME\fP ms Abständen angezeigt
+.PP
+Es ist zu beachten das der Roomba nur eine Segmentanzeige besitzt und daher die Buchstaben nur angenähert werden!
+.PP
+\fBParameter:\fP
+.RS 4
+\fIstring\fP String der Angezeigt werden soll 
+.RE
+.PP
+\fBRückgabe:\fP
+.RS 4
+< 0 Fehler aufgetreten >= 0 kein Fehler aufgetreten 
+.RE
+.PP
+
+.SS "int8_t roomba_showHexLED (uint16_tt)"
+Zeigt eine Zahl auf der Anzeige des Roombas in Hex an 
+.PP
+\fBParameter:\fP
+.RS 4
+\fIt\fP Zahl die Angezeigt werden soll 
+.RE
+.PP
+\fBRückgabe:\fP
+.RS 4
+< 0 Fehler aufgetreten >= 0 kein Fehler aufgetreten 
+.RE
+.PP
+\fBSiehe auch:\fP
+.RS 4
+\fBroomba_showASCII(char*)\fP 
+.RE
+.PP
+
+.SS "int8_t roomba_start ()"
+Sendet ROOMBA_START und ROOMBA_SAFE um die Kommunikation mit dem Roomba zu initialisieren\&. Zusätzlich bricht diese Befehlsreihenfolge den Aktuellen Befehl ab! 
+.PP
+\fBRückgabe:\fP
+.RS 4
+< 0 Fehler aufgetreten >= 0 kein Fehler aufgetreten 
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

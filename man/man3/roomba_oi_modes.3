@@ -1,0 +1,47 @@
+.TH "OI Modes" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OI Modes \- 
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_OFF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_PASSIVE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_SAFE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_FULL\fP   3"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+
+.SH "Makro-Dokumentation"
+.PP 
+.SS "#define ROOMBA_SENSOR_OI_MODE_FULL   3"
+Full Mode
+.PP
+Im Full Mode akzeptiert der Roomba alle Befehle\&. Die interne API ist deaktiviert! 
+.SS "#define ROOMBA_SENSOR_OI_MODE_OFF   0"
+Off Mode
+.PP
+In diesem Modus nimmt der Roomba nur den \fBROOMBA_START\fP Befehl an 
+.SS "#define ROOMBA_SENSOR_OI_MODE_PASSIVE   1"
+Passiv Mode
+.PP
+In diesem Modus nimmder Roomba alle Sensor Befehle an, den \fBROOMBA_SONG\fP und alle Mode Befehl an 
+.SS "#define ROOMBA_SENSOR_OI_MODE_SAFE   2"
+Safe Mode
+.PP
+Im Safe Mode akzeptiert der Roomba alle Befehl
+.PP
+Die interne Sotware wechselt automatisch in den \fBROOMBA_SENSOR_OI_MODE_PASSIVE\fP wenn ein Kritischer Zustand Auftritt 
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

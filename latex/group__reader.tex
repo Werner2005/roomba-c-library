@@ -1,0 +1,193 @@
+\hypertarget{group__reader}{\section{Roomba Reader}
+\label{group__reader}\index{Roomba Reader@{Roomba Reader}}
+}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__reader_gad57079c91b29054a870a52e296de7c8f}{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G}
+\item 
+\#define \hyperlink{group__reader_ga6c7a085dd8b07086302a3522eacb1d7b}{R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D}
+\item 
+\#define \hyperlink{group__reader_gab5ab726f0bd857186141a6e7659f75df}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~173
+\item 
+\#define \hyperlink{group__reader_ga2079001845af1fd6a4e1155bb27519c6}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E}~50
+\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group__reader_ga74bd1c0af119d3680033932aee94d998}{roomba\-Status} \hyperlink{group__reader_gaee08b378f859db5b29b55d1c980a8df9}{roomba\-Status\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Aufzählungen}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__reader_ga74bd1c0af119d3680033932aee94d998}{roomba\-Status} \{ \\*
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a0e9a37114c0e458d28d52f06ec0f2242}{idle}, 
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a0f5565850b8d65e6ecd05739440bb48a}{singeldata}, 
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a084e12cf09138eec8d807c9ca90d1021}{group}, 
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a87aed4f2a754303740474022109f678a}{query}, 
+\\*
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a8c135cc3d1b918bd7b75a65104cac458}{stream}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+int8\-\_\-t \hyperlink{group__reader_ga0174eded302cf02ac49a990e385cfe90}{roomba\-\_\-read} (uint8\-\_\-t c)
+\item 
+int8\-\_\-t \hyperlink{group__reader_ga3082696b4e010cc447298466b4f6d90b}{roomba\-\_\-get\-Sensor\-Data} (\hyperlink{group__roomba__def_gab15b5566c76fa573575afaccd593e86a}{roomba\-Sensor\-Data\-\_\-t} $\ast$data)
+\item 
+void \hyperlink{group__reader_ga37eb8be9c6766f717f12e83837cd1cd9}{roomba\-\_\-reset} ()
+\item 
+uint8\-\_\-t \hyperlink{group__reader_ga5e82acf96df5ac30063b6abbcbeeeea9}{roomba\-\_\-has\-Sensor\-Data} ()
+\item 
+\hyperlink{group__reader_gaee08b378f859db5b29b55d1c980a8df9}{roomba\-Status\-\_\-t} \hyperlink{group__reader_ga59df7bd192d391fdac537ea1ddaf19f5}{roomba\-\_\-get\-Status} ()
+\item 
+void \hyperlink{group__reader_ga4f970b48b2983cf826a29d2cafc05dc3}{roomba\-\_\-abort\-\_\-sensor} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Lese Module 
+
+\subsection{Makro-\/\-Dokumentation}
+\hypertarget{group__reader_gad57079c91b29054a870a52e296de7c8f}{\index{Roomba Reader@{Roomba Reader}!R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G@{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G}}
+\index{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G@{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G}}\label{group__reader_gad57079c91b29054a870a52e296de7c8f}
+Wenn dieses Define definiert ist werden alle Blockiere Methoden nicht blockieren und immer \hyperlink{group__roomba__error_gad35f7cffbb363514d9453cea041593e4}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-A\-G\-A\-I\-N} zurückgeben wenn keine Daten verfügbar sind.
+
+Define muss über den Compiler gesetzt werden!(-\/\-D\-R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G) \hypertarget{group__reader_gab5ab726f0bd857186141a6e7659f75df}{\index{Roomba Reader@{Roomba Reader}!R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E~173}}\label{group__reader_gab5ab726f0bd857186141a6e7659f75df}
+Roomba Senosr Buffer Größe \hypertarget{group__reader_ga6c7a085dd8b07086302a3522eacb1d7b}{\index{Roomba Reader@{Roomba Reader}!R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D@{R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D}}
+\index{R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D@{R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D}}\label{group__reader_ga6c7a085dd8b07086302a3522eacb1d7b}
+Wenn diese Define gesetzt ist. Wird ein zweiter Ringbuffer vorgeschaltete. Ziel ist die Zeit die Read benötigt zu verringern.
+
+Die Daten werden dann nicht mehr von \hyperlink{group__reader_ga0174eded302cf02ac49a990e385cfe90}{roomba\-\_\-read()} verarbeitet sondern beim Abrufen der Daten(\hyperlink{group__reader_ga5e82acf96df5ac30063b6abbcbeeeea9}{roomba\-\_\-has\-Sensor\-Data()} und \hyperlink{group__reader_ga3082696b4e010cc447298466b4f6d90b}{roomba\-\_\-get\-Sensor\-Data})
+
+Define muss über den Compiler gesetzt werden!(-\/\-D\-R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D) \hypertarget{group__reader_ga2079001845af1fd6a4e1155bb27519c6}{\index{Roomba Reader@{Roomba Reader}!R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E@{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E}}
+\index{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E@{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E~50}}\label{group__reader_ga2079001845af1fd6a4e1155bb27519c6}
+Anzahl von Stream Paketen die Ignoriert werden sollen falls der Interne Buffer voll ist 
+
+\subsection{Dokumentation der benutzerdefinierten Typen}
+\hypertarget{group__reader_gaee08b378f859db5b29b55d1c980a8df9}{\index{Roomba Reader@{Roomba Reader}!roomba\-Status\-\_\-t@{roomba\-Status\-\_\-t}}
+\index{roomba\-Status\-\_\-t@{roomba\-Status\-\_\-t}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-Status\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf roomba\-Status} {\bf roomba\-Status\-\_\-t}}}\label{group__reader_gaee08b378f859db5b29b55d1c980a8df9}
+
+
+\subsection{Dokumentation der Aufzählungstypen}
+\hypertarget{group__reader_ga74bd1c0af119d3680033932aee94d998}{\index{Roomba Reader@{Roomba Reader}!roomba\-Status@{roomba\-Status}}
+\index{roomba\-Status@{roomba\-Status}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-Status}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf roomba\-Status}}}\label{group__reader_ga74bd1c0af119d3680033932aee94d998}
+Stadien für lesen \begin{Desc}
+\item[Aufzählungswerte]\par
+\begin{description}
+\index{idle@{idle}!Roomba Reader@{Roomba Reader}}\index{Roomba Reader@{Roomba Reader}!idle@{idle}}\item[{\em 
+\hypertarget{group__reader_gga74bd1c0af119d3680033932aee94d998a0e9a37114c0e458d28d52f06ec0f2242}{idle}\label{group__reader_gga74bd1c0af119d3680033932aee94d998a0e9a37114c0e458d28d52f06ec0f2242}
+}]Idle \index{singeldata@{singeldata}!Roomba Reader@{Roomba Reader}}\index{Roomba Reader@{Roomba Reader}!singeldata@{singeldata}}\item[{\em 
+\hypertarget{group__reader_gga74bd1c0af119d3680033932aee94d998a0f5565850b8d65e6ecd05739440bb48a}{singeldata}\label{group__reader_gga74bd1c0af119d3680033932aee94d998a0f5565850b8d65e6ecd05739440bb48a}
+}]Singeldata \index{group@{group}!Roomba Reader@{Roomba Reader}}\index{Roomba Reader@{Roomba Reader}!group@{group}}\item[{\em 
+\hypertarget{group__reader_gga74bd1c0af119d3680033932aee94d998a084e12cf09138eec8d807c9ca90d1021}{group}\label{group__reader_gga74bd1c0af119d3680033932aee94d998a084e12cf09138eec8d807c9ca90d1021}
+}]Gruppe \index{query@{query}!Roomba Reader@{Roomba Reader}}\index{Roomba Reader@{Roomba Reader}!query@{query}}\item[{\em 
+\hypertarget{group__reader_gga74bd1c0af119d3680033932aee94d998a87aed4f2a754303740474022109f678a}{query}\label{group__reader_gga74bd1c0af119d3680033932aee94d998a87aed4f2a754303740474022109f678a}
+}]Query List \index{stream@{stream}!Roomba Reader@{Roomba Reader}}\index{Roomba Reader@{Roomba Reader}!stream@{stream}}\item[{\em 
+\hypertarget{group__reader_gga74bd1c0af119d3680033932aee94d998a8c135cc3d1b918bd7b75a65104cac458}{stream}\label{group__reader_gga74bd1c0af119d3680033932aee94d998a8c135cc3d1b918bd7b75a65104cac458}
+}]stream \end{description}
+\end{Desc}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{group__reader_ga4f970b48b2983cf826a29d2cafc05dc3}{\index{Roomba Reader@{Roomba Reader}!roomba\-\_\-abort\-\_\-sensor@{roomba\-\_\-abort\-\_\-sensor}}
+\index{roomba\-\_\-abort\-\_\-sensor@{roomba\-\_\-abort\-\_\-sensor}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-\_\-abort\-\_\-sensor}]{\setlength{\rightskip}{0pt plus 5cm}void roomba\-\_\-abort\-\_\-sensor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__reader_ga4f970b48b2983cf826a29d2cafc05dc3}
+Bricht Sensor Pasing ab
+
+Es kann vorkommen das nicht alle Pakete eines angeforderten Befehles ankommen daher ist es wichtig das auch ein Sensor Befehl abgebrochen werden kann
+
+Falls aktuell kein Sensor Befehl aktiv ist hat dieser Befehl keine Auswirkung!
+
+Diese Funktion setzt den Fehler \hyperlink{group__roomba__error_gaacd25ee9912b9e5c47373ac43eba1830}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-A\-B\-O\-R\-T\-\_\-\-S\-E\-N\-S\-O\-R}
+
+Falls ein Sensor Stream aktiv ist wird dieser mit dem Befehl \hyperlink{group__roomba__commands__sensor_ga6389061ebdb4feec1198ea5c4f6fae55}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-U\-S\-E\-\_\-\-R\-E\-S\-U\-M\-E} beendet \hypertarget{group__reader_ga3082696b4e010cc447298466b4f6d90b}{\index{Roomba Reader@{Roomba Reader}!roomba\-\_\-get\-Sensor\-Data@{roomba\-\_\-get\-Sensor\-Data}}
+\index{roomba\-\_\-get\-Sensor\-Data@{roomba\-\_\-get\-Sensor\-Data}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-\_\-get\-Sensor\-Data}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-get\-Sensor\-Data (
+\begin{DoxyParamCaption}
+\item[{{\bf roomba\-Sensor\-Data\-\_\-t} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{group__reader_ga3082696b4e010cc447298466b4f6d90b}
+Gibt ein Sensor Daten zurück Wenn keine Daten verfügbar sind blockiert diese Methode bis Daten da sind(Ausser \hyperlink{group__reader_gad57079c91b29054a870a52e296de7c8f}{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G} ist gesetzt!)
+
+
+\begin{DoxyParams}{Parameter}
+{\em data} & Rommba Sensor Daten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Folge Werne können zurück geben werden\-:
+\begin{DoxyItemize}
+\item {\bfseries 0} kein Fehler
+\item {\bfseries -\/\hyperlink{group__roomba__error_gad35f7cffbb363514d9453cea041593e4}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-A\-G\-A\-I\-N}} Keine Sensor\-Daten vorhanden! Wird nur zurück geben wenn \hyperlink{group__reader_gad57079c91b29054a870a52e296de7c8f}{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G} gesetzt ist! 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{group__reader_ga59df7bd192d391fdac537ea1ddaf19f5}{\index{Roomba Reader@{Roomba Reader}!roomba\-\_\-get\-Status@{roomba\-\_\-get\-Status}}
+\index{roomba\-\_\-get\-Status@{roomba\-\_\-get\-Status}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-\_\-get\-Status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf roomba\-Status\-\_\-t} roomba\-\_\-get\-Status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__reader_ga59df7bd192d391fdac537ea1ddaf19f5}
+Gibt Aktuellen Sensor Paser Status zurück
+
+\begin{DoxyReturn}{Rückgabe}
+Status 
+\end{DoxyReturn}
+\hypertarget{group__reader_ga5e82acf96df5ac30063b6abbcbeeeea9}{\index{Roomba Reader@{Roomba Reader}!roomba\-\_\-has\-Sensor\-Data@{roomba\-\_\-has\-Sensor\-Data}}
+\index{roomba\-\_\-has\-Sensor\-Data@{roomba\-\_\-has\-Sensor\-Data}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-\_\-has\-Sensor\-Data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t roomba\-\_\-has\-Sensor\-Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__reader_ga5e82acf96df5ac30063b6abbcbeeeea9}
+Prüft ob Sensor\-Daten vorliegen
+
+\begin{DoxyReturn}{Rückgabe}
+true\-: Sensor\-Daten verfügbar false\-: Keine Sensor\-Daten verfügbar 
+\end{DoxyReturn}
+\hypertarget{group__reader_ga0174eded302cf02ac49a990e385cfe90}{\index{Roomba Reader@{Roomba Reader}!roomba\-\_\-read@{roomba\-\_\-read}}
+\index{roomba\-\_\-read@{roomba\-\_\-read}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{c}
+\end{DoxyParamCaption}
+)}}\label{group__reader_ga0174eded302cf02ac49a990e385cfe90}
+Verarbeite ein Zeichen
+
+
+\begin{DoxyParams}{Parameter}
+{\em c} & Zeichen das Verarbeitet werden soll \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Kann verschiedene Werte zurückgeben
+\begin{DoxyItemize}
+\item {\bfseries 0} Kein Fehler
+\item {\bfseries -\/\hyperlink{group__roomba__error_ga3b04cf6a702280d61f12860ce3ce6263}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L}(-\/\hyperlink{group__roomba__error_ga5b9531ddf3975bb8be2529f61e9709cd}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L\-\_\-\-C\-H\-A\-R}, -\/\hyperlink{group__roomba__error_gafb6db822e9e4a47ec7a987c717830202}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L\-\_\-\-S\-T\-R\-E\-A\-M})} Buffer voll
+\item {\bfseries -\/\hyperlink{group__roomba__error_ga576b76b11e017abce9f7ff99b4b7161e}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-N\-O\-\_\-\-S\-I\-G\-N\-\_\-\-E\-X\-P\-E\-C\-T\-E\-D}} Kein Zeichen erwartet Beim verarbeiten eines Stream können folgende (Fehler auftreten Fehler kännen nur auftreten wenn \hyperlink{group__reader_ga6c7a085dd8b07086302a3522eacb1d7b}{R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D} nicht gesetzt ist!)
+\item {\bfseries -\/\hyperlink{group__roomba__error__stream_gaccb52301b5b2449935f09b113b19b2b2}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}} Zeichen war nicht das erwarte Header Zeichen(19)
+\item {\bfseries -\/\hyperlink{group__roomba__error__stream_ga951d522c2e15b1bb9b1e7367a0124e12}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-S\-E\-N\-S\-O\-R\-I\-D\-\_\-\-N\-O\-T\-\_\-\-F\-O\-U\-N\-D}} Senesor I\-D nicht korrekt
+\item {\bfseries -\/\hyperlink{group__roomba__error__stream_ga2ee060350797b7c170ffcd035e40a034}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-C\-H\-E\-C\-K\-S\-U\-M\-\_\-\-N\-O\-T\-\_\-\-V\-A\-L\-I\-D}} Checksumme nicht korrekt 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{group__reader_ga37eb8be9c6766f717f12e83837cd1cd9}{\index{Roomba Reader@{Roomba Reader}!roomba\-\_\-reset@{roomba\-\_\-reset}}
+\index{roomba\-\_\-reset@{roomba\-\_\-reset}!Roomba Reader@{Roomba Reader}}
+\subsubsection[{roomba\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}void roomba\-\_\-reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__reader_ga37eb8be9c6766f717f12e83837cd1cd9}
+Resetet Buffer 

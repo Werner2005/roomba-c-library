@@ -1,0 +1,186 @@
+\hypertarget{group__roomba__command}{\section{Roomba Command Libary}
+\label{group__roomba__command}\index{Roomba Command Libary@{Roomba Command Libary}}
+}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__roomba__command_ga37c9f1a8302deafd88328c5e93c0be34}{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E}~2000
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__roomba__command_ga5069285ea70869042d10d46ba956609e}{roomba\-\_\-command\-\_\-init} (int8\-\_\-t($\ast$s)(\hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t} $\ast$command), int($\ast$ms)(unsigned int))
+\item 
+int8\-\_\-t \hyperlink{group__roomba__command_ga0683a37734e0cb2bcf0cf02cbed5bd6d}{roomba\-\_\-send} (uint8\-\_\-t command\-I\-D, uint8\-\_\-t size,...)
+\item 
+int8\-\_\-t \hyperlink{group__roomba__command_ga0009ab88976753a51dad258f6cd24b56}{roomba\-\_\-start} ()
+\item 
+int8\-\_\-t \hyperlink{group__roomba__command_ga05d56faf8c83be76e70244faf6fad11d}{roomba\-\_\-drive} (int16\-\_\-t velocity, int16\-\_\-t radius)
+\item 
+int8\-\_\-t \hyperlink{group__roomba__command_ga9cd8ae0025cf3c68650685e9be9a6d98}{roomba\-\_\-show\-A\-S\-C\-I\-I} (char $\ast$string)
+\item 
+int8\-\_\-t \hyperlink{group__roomba__command_gae7347769338e61069cf91e5c2be64ad7}{roomba\-\_\-show\-Hex\-L\-E\-D} (uint16\-\_\-t t)
+\item 
+int8\-\_\-t \hyperlink{group__roomba__command_gae99397efcf4eb54176e81f509a87bc56}{roomba\-\_\-extra\-\_\-stream\-\_\-start} (uint16\-\_\-t ms, uint8\-\_\-t size,...)
+\item 
+int8\-\_\-t \hyperlink{group__roomba__command_ga81d22279a9c3a24327a5107be58a7ab0}{roomba\-\_\-extra\-\_\-stream\-\_\-stop} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+In diesem Modul wird eine A\-P\-I definiert um vereinfacht und Standardisiert mit dem Roomba zu kommunizieren. 
+
+\subsection{Makro-\/\-Dokumentation}
+\hypertarget{group__roomba__command_ga37c9f1a8302deafd88328c5e93c0be34}{\index{Roomba Command Libary@{Roomba Command Libary}!R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E@{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E}}
+\index{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E@{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E~2000}}\label{group__roomba__command_ga37c9f1a8302deafd88328c5e93c0be34}
+Wartezeit die gewartet wird zwischen 4 Buchstaben
+
+Wird von \hyperlink{group__roomba__command_ga9cd8ae0025cf3c68650685e9be9a6d98}{roomba\-\_\-show\-A\-S\-C\-I\-I} 
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{group__roomba__command_ga5069285ea70869042d10d46ba956609e}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-command\-\_\-init@{roomba\-\_\-command\-\_\-init}}
+\index{roomba\-\_\-command\-\_\-init@{roomba\-\_\-command\-\_\-init}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-command\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void roomba\-\_\-command\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{int8\-\_\-t($\ast$)({\bf roomba\-Command\-\_\-t} $\ast$command)}]{s, }
+\item[{int($\ast$)(unsigned int)}]{ms}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_ga5069285ea70869042d10d46ba956609e}
+Initialisiert Libary
+
+
+\begin{DoxyParams}{Parameter}
+{\em s} & sende Callback Funktion bekommt ein Kommando Übergeben das Versendet werden soll Diese Funktion soll einen Wert von $<$ 0 zurück wenn ein Fehler aufgetreten ist\\
+\hline
+\end{DoxyParams}
+Beispiel\-: über sdds an Roomba oder Sensorknoten über R\-S232 an Roomba ... 
+\begin{DoxyParams}{Parameter}
+{\em ms} & Funktion wie sleep. Dieser Callback soll eine bestimmte Zeit in Milisekunden warten. Dieser Callback wird für \hyperlink{group__roomba__command_ga9cd8ae0025cf3c68650685e9be9a6d98}{roomba\-\_\-show\-A\-S\-C\-I\-I()} benötigt \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__roomba__command_ga05d56faf8c83be76e70244faf6fad11d}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-drive@{roomba\-\_\-drive}}
+\index{roomba\-\_\-drive@{roomba\-\_\-drive}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-drive}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-drive (
+\begin{DoxyParamCaption}
+\item[{int16\-\_\-t}]{velocity, }
+\item[{int16\-\_\-t}]{radius}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_ga05d56faf8c83be76e70244faf6fad11d}
+Einfacher Bewege Befehl Verwendet \hyperlink{group__roomba__commands__motor_gacf921626edb00b06fbdf86312d8c7341}{R\-O\-O\-M\-B\-A\-\_\-\-D\-R\-I\-V\-E}
+
+
+\begin{DoxyParams}{Parameter}
+{\em velocity} & Geschwindelt in mm/s (-\/500 -\/ 500 mm/s) \\
+\hline
+{\em radius} & in mm (-\/2000 mm -\/ 2000 mm) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+$<$ 0 Fehler aufgetreten $>$= 0 kein Fehler aufgetreten 
+\end{DoxyReturn}
+\hypertarget{group__roomba__command_gae99397efcf4eb54176e81f509a87bc56}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-extra\-\_\-stream\-\_\-start@{roomba\-\_\-extra\-\_\-stream\-\_\-start}}
+\index{roomba\-\_\-extra\-\_\-stream\-\_\-start@{roomba\-\_\-extra\-\_\-stream\-\_\-start}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-extra\-\_\-stream\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-extra\-\_\-stream\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{ms, }
+\item[{uint8\-\_\-t}]{size, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_gae99397efcf4eb54176e81f509a87bc56}
+Startet eine Sensor Stream
+
+\begin{DoxyWarning}{Warnung}
+diese Funktion darf nicht zusammen mit der roomba.\-c verwendet werden!
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameter}
+{\em ms} & Perioden Dauer \\
+\hline
+{\em size} & Anzahl der Sensor\-I\-Ds \\
+\hline
+{\em ...} & Sensor\-I\-Ds \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__roomba__command_ga81d22279a9c3a24327a5107be58a7ab0}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-extra\-\_\-stream\-\_\-stop@{roomba\-\_\-extra\-\_\-stream\-\_\-stop}}
+\index{roomba\-\_\-extra\-\_\-stream\-\_\-stop@{roomba\-\_\-extra\-\_\-stream\-\_\-stop}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-extra\-\_\-stream\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-extra\-\_\-stream\-\_\-stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_ga81d22279a9c3a24327a5107be58a7ab0}
+Stoppt Sensor Stream
+
+\begin{DoxyWarning}{Warnung}
+diese Funktion darf nicht zusammen mit der roomba.\-c verwendet werden! 
+\end{DoxyWarning}
+\hypertarget{group__roomba__command_ga0683a37734e0cb2bcf0cf02cbed5bd6d}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-send@{roomba\-\_\-send}}
+\index{roomba\-\_\-send@{roomba\-\_\-send}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-send (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{command\-I\-D, }
+\item[{uint8\-\_\-t}]{size, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_ga0683a37734e0cb2bcf0cf02cbed5bd6d}
+Sendet ein Befehl an den Roomba
+
+
+\begin{DoxyParams}{Parameter}
+{\em command\-I\-D} & Kommando I\-D Beispiel\-: \hyperlink{group__roomba__commands__start_gaf1978389e19799d1dbf5e66303e86042}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-A\-R\-T} \\
+\hline
+{\em size} & Anzahl der Daten Bytes \\
+\hline
+{\em ...} & Daten \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+$<$ 0 Fehler aufgetreten $>$= 0 kein Fehler aufgetreten 
+\end{DoxyReturn}
+\hypertarget{group__roomba__command_ga9cd8ae0025cf3c68650685e9be9a6d98}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-show\-A\-S\-C\-I\-I@{roomba\-\_\-show\-A\-S\-C\-I\-I}}
+\index{roomba\-\_\-show\-A\-S\-C\-I\-I@{roomba\-\_\-show\-A\-S\-C\-I\-I}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-show\-A\-S\-C\-I\-I}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-show\-A\-S\-C\-I\-I (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_ga9cd8ae0025cf3c68650685e9be9a6d98}
+Zeigt ein Bestimmten Text auf der L\-E\-D Anzeige des Roomba an Falls der Text $>$ 4 Zeichen ist wird er in 4 Zeichen Sequenzen gesplittet und nacheinander in \hyperlink{group__roomba__command_ga37c9f1a8302deafd88328c5e93c0be34}{R\-O\-O\-M\-B\-A\-\_\-\-L\-E\-D\-\_\-\-W\-A\-I\-T\-T\-I\-M\-E} ms Abständen angezeigt
+
+Es ist zu beachten das der Roomba nur eine Segmentanzeige besitzt und daher die Buchstaben nur angenähert werden!
+
+
+\begin{DoxyParams}{Parameter}
+{\em string} & String der Angezeigt werden soll \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+$<$ 0 Fehler aufgetreten $>$= 0 kein Fehler aufgetreten 
+\end{DoxyReturn}
+\hypertarget{group__roomba__command_gae7347769338e61069cf91e5c2be64ad7}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-show\-Hex\-L\-E\-D@{roomba\-\_\-show\-Hex\-L\-E\-D}}
+\index{roomba\-\_\-show\-Hex\-L\-E\-D@{roomba\-\_\-show\-Hex\-L\-E\-D}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-show\-Hex\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-show\-Hex\-L\-E\-D (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{t}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_gae7347769338e61069cf91e5c2be64ad7}
+Zeigt eine Zahl auf der Anzeige des Roombas in Hex an 
+\begin{DoxyParams}{Parameter}
+{\em t} & Zahl die Angezeigt werden soll \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+$<$ 0 Fehler aufgetreten $>$= 0 kein Fehler aufgetreten 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Siehe auch}
+\hyperlink{group__roomba__command_ga9cd8ae0025cf3c68650685e9be9a6d98}{roomba\-\_\-show\-A\-S\-C\-I\-I(char$\ast$)} 
+\end{DoxySeeAlso}
+\hypertarget{group__roomba__command_ga0009ab88976753a51dad258f6cd24b56}{\index{Roomba Command Libary@{Roomba Command Libary}!roomba\-\_\-start@{roomba\-\_\-start}}
+\index{roomba\-\_\-start@{roomba\-\_\-start}!Roomba Command Libary@{Roomba Command Libary}}
+\subsubsection[{roomba\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-start (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__command_ga0009ab88976753a51dad258f6cd24b56}
+Sendet R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-A\-R\-T und R\-O\-O\-M\-B\-A\-\_\-\-S\-A\-F\-E um die Kommunikation mit dem Roomba zu initialisieren. Zusätzlich bricht diese Befehlsreihenfolge den Aktuellen Befehl ab! \begin{DoxyReturn}{Rückgabe}
+$<$ 0 Fehler aufgetreten $>$= 0 kein Fehler aufgetreten 
+\end{DoxyReturn}

@@ -1,0 +1,88 @@
+.TH "Roomba Sensor Database" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Roomba Sensor Database \- 
+.SS "Funktionen"
+
+.in +1c
+.ti -1c
+.RI "int8_t \fBroomba_sensor_database_init\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_sensor_database_receive\fP (\fBroombaSensorData_t\fP *data)"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_sensor_database_get\fP (uint8_t sensorID, \fBroombaSensorData_t\fP *result)"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+Libary zu Aufbewahrung von Sensor Daten
+.PP
+Libary kann verwent werden um zu erkennen ob Daten vom Roomba neu
+.PP
+Daten werden eingelagert mit \fBroomba_sensor_database_receive()\fP 
+.SH "Dokumentation der Funktionen"
+.PP 
+.SS "int8_t roomba_sensor_database_get (uint8_tsensorID, \fBroombaSensorData_t\fP *result)"
+Liefert einen Bestimmte SensorID zurück
+.PP
+Wenn data->sensorID == \fBROOMBA_SENSOR_DISTANCE\fP || data->sensorID == \fBROOMBA_SENSOR_ANGLE\fP dann wird der Wert automatisch auf 0 gesetzt wenn es einmal abgerufen worden ist!
+.PP
+\fBRückgabe:\fP
+.RS 4
+Folgende Werte können zurück gegeben werden:
+.IP "\(bu" 2
+\fB0\fP Daten vorhanden
+.IP "\(bu" 2
+\fB-1\fP Daten unbekannt 
+.PP
+.RE
+.PP
+
+.SS "int8_t roomba_sensor_database_init ()"
+Initialisiert den Speicher
+.PP
+Der intere Speiche kann alle Gültige Sensor IDs aufnehmen
+.PP
+\fBRückgabe:\fP
+.RS 4
+Folgende Werte können zurück gegeben werden:
+.IP "\(bu" 2
+\fB0\fP keine Fehler 
+.PP
+.RE
+.PP
+
+.SS "int8_t roomba_sensor_database_receive (\fBroombaSensorData_t\fP *data)"
+Daten im Internen Buffer einlagern Überschreibt bei Aktualisierung den Internen Buffer und meldet zurück ob die Daten neu waren!
+.PP
+Ob die Daten neu sind wird über den Vergleich 
+.PP
+.nf
+ bufferData->data == data->data && bufferData->sensorID != 0 
+
+.fi
+.PP
+.PP
+entschieden
+.PP
+Wenn data->sensorID == \fBROOMBA_SENSOR_DISTANCE\fP || data->sensorID == \fBROOMBA_SENSOR_ANGLE\fP wird immer angenommen das der Wert neu ist außer der wert war 0 und ist 0!
+.PP
+\fBRückgabe:\fP
+.RS 4
+Folgende Werte können zurück gegeben werden:
+.IP "\(bu" 2
+\fB0\fP Daten alt nicht aktualisiert
+.IP "\(bu" 2
+\fB1\fP Daten neu aktualisiert
+.IP "\(bu" 2
+\fB-1\fP Übergebende Daten fehlerhaft 
+.PP
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

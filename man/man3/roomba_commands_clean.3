@@ -1,0 +1,52 @@
+.TH "Putzt Kommandos" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Putzt Kommandos \- 
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROOMBA_CLEAN\fP   135"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_MAX\fP   136"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SPOT\fP   134"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SEEK_DOCK\fP   143"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SCHEDULE\fP   167"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SET_TIME_DATE\fP   168"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_POWER\fP   133"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+
+.SH "Makro-Dokumentation"
+.PP 
+.SS "#define ROOMBA_CLEAN   135"
+Startet normalen Säuberungsmodus 
+.SS "#define ROOMBA_MAX   136"
+Startet den Max Säuberungsmodus 
+.SS "#define ROOMBA_POWER   133"
+Ausschalten des Roomba 
+.SS "#define ROOMBA_SCHEDULE   167"
+Setzte oder löscht geplante Reinigungszyklus\&. Zum deaktivieren eines geplante Reinigungszyklus müssen alle werte auf 0 gesetzt werden\&. Dieser Befehl erfordert folgende Bytes: [Days] [Sun Hour] [Sun Minute] [Mon Hour] [Mon Minute] [Tue Hour] [Tue Minute] [Wed Hour] [Wed Minute] [Thu Hour] [Thu Minute] [Fri Hour] [Fri Minute] [Sat Hour] [Sat Minute] 
+.SS "#define ROOMBA_SEEK_DOCK   143"
+Suche und Docke an Dockingstationn an 
+.SS "#define ROOMBA_SET_TIME_DATE   168"
+Setzt die den Tag und die Uhrzeit des Roomba [Day] [Hour] [Minute] Day=0 ist Sonntag 
+.SS "#define ROOMBA_SPOT   134"
+Startet den Spot Säuberungsmodus 
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

@@ -1,0 +1,554 @@
+.TH "/home/andreas/roomba/lib/includes/roomba_def.h" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/andreas/roomba/lib/includes/roomba_def.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Datenstrukturen"
+
+.in +1c
+.ti -1c
+.RI "struct \fBroombaCommand\fP"
+.br
+.ti -1c
+.RI "struct \fBroombaSensorData\fP"
+.br
+.in -1c
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROOMBA_MAX_DATA\fP   66"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_NO\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_BUFFER_FULL\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_NO_SIGN_EXPECTED\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_WRITE\fP   0x03"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_TO_BIG\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_HEADER_NOT_FOUND\fP   0x05"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_SENSORID_NOT_FOUND\fP   0x06"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_CHECKSUM_NOT_VALID\fP   0x07"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_AGAIN\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_BUFFER_FULL_STREAM\fP   0x09"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_BUFFER_FULL_CHAR\fP   0x0a"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_CALIBRATION_FAULT\fP   0x0b"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_ERROR_ABORT_SENSOR\fP   0x0c"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_START\fP   128"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_BAUD\fP   129"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SAFE\fP   131"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_FULL\fP   132"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_CLEAN\fP   135"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_MAX\fP   136"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SPOT\fP   134"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SEEK_DOCK\fP   143"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SCHEDULE\fP   167"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SET_TIME_DATE\fP   168"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_POWER\fP   133"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_DRIVE\fP   137"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_DRIVE_DIRECT\fP   145"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_DRIVE_PWM\fP   146"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_MOTORS\fP   138"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_MOTORS_PWM\fP   144"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_LEDS\fP   139"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_LEDS_SCHEDULING\fP   162"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_LEDS_DIGIT_RAW\fP   163"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_LEDS_DIGIT_ASCII\fP   164"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_BUTTONS\fP   165"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SONG\fP   140"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_PLAY\fP   141"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SCRIPT\fP   152"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SCRPTT_PLAY\fP   153"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SCRIPT_SHOW\fP   154"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_TIME\fP   155"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_DISTANCE\fP   156"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_ANGLE\fP   157"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_EVENT\fP   158"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_WHEEL_DROP\fP   1"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_WHEEL_DROP_FRONT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_WHEEL_DROP_LEFT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_WHEEL_DROP_RIGHT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_BUMP\fP   5"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_BUMP_LEFT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_BUMP_RIGHT\fP   7"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_VIRTUAL_WALL\fP   8"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_WALL\fP   9"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_CLIFF\fP   10"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_CLIFF_LEFT\fP   11"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_CLIFF_FRONT_LEFT\fP   12"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_CLIFF_FRONT_RIGHT\fP   13"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_CLIFF_RIGHT\fP   14"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_HOME_BASE\fP   15"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_ADVANCE_BUTTON\fP   16"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_PLAY_BUTTON\fP   17"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_DIGITAL_INPUT_0\fP   18"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_DIGITAL_INPUT_1\fP   19"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_DIGITAL_INPUT_2\fP   20"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_DIGITAL_INPUT_3\fP   21"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EVNET_OI_MODE_PASSIVE\fP   22"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSORS\fP   142"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_QUERY_LIST\fP   149"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_STREAM\fP   148"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_STREAM_PAUSE_RESUME\fP   150"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EXTRA_STREAM\fP   200"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EXTRA_STREAM_PAUSE_RESUME\fP   201"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_0\fP   0"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_0_SIZE\fP   26"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_0_START\fP   7"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_0_STOP\fP   26"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_1_SIZE\fP   10"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_1_START\fP   7"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_1_STOP\fP   16"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_2_SIZE\fP   6"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_2_START\fP   17"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_2_STOP\fP   20"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_3_SIZE\fP   10"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_3_START\fP   21"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_3_STOP\fP   26"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_4_SIZE\fP   14"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_4_START\fP   27"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_4_STOP\fP   34"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_5\fP   5"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_5_SIZE\fP   12"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_5_START\fP   35"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_5_STOP\fP   42"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_6\fP   6"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_6_SIZE\fP   52"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_6_START\fP   7"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_6_STOP\fP   42"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_100\fP   100"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_100_SIZE\fP   93"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_100_START\fP   7"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_100_STOP\fP   71"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_101\fP   101"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_101_SIZE\fP   28"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_101_START\fP   43"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_101_STOP\fP   58"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_106\fP   106"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_106_SIZE\fP   12"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_106_START\fP   46"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_106_STOP\fP   51"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_107\fP   107"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_107_SIZE\fP   9"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_107_START\fP   54"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_GROUP_107_STOP\fP   58"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_BUMPS_WHEEL_DROPS\fP   7"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_WALL\fP   8"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_LEFT\fP   9"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_FRONT_LEFT\fP   10"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_FRONT_RIGHT\fP   11"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_RIGHT\fP   12"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_VIRTUAL_WALL\fP   13"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_WHEEL_OVERCURRENTS\fP   14"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_DIRT_DETECT\fP   15"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_UNUSED_1\fP   16"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_INFRARED_CHAR_OMMI\fP   17"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_INFRARED_CHAR_LEFT\fP   52"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_INFRARED_CHAR_RIGHT\fP   53"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_BUTTONS\fP   18"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_DISTANCE\fP   19"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_ANGLE\fP   20"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_WALL_SIGNAL\fP   27"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_LEFT\fP   28"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_FRONT_LEFT\fP   29"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_FRONT_RIGHT\fP   30"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_RIGHT\fP   31"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_UNUSED_2\fP   32"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_UNUSED_3\fP   33"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_VELOCITY\fP   39"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_RADIUS\fP   40"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_VELOCITY_RIGHT\fP   41"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_VELOCITY_LEFT\fP   42"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_ENCODER_COUNTS_RIGHT\fP   43"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_ENCODER_COUNTS_LEFT\fP   44"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER\fP   45"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_LEFT\fP   46"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_FRONT_LEFT\fP   47"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_CENTER_LEFT\fP   48"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_CENTER_RIGHT\fP   49"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_FRONT_RIGHT\fP   50"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_RIGHT\fP   51"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_STASIS\fP   58"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CHANGING_STATE\fP   21"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_VOLTAGE\fP   22"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CURRENT\fP   23"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_TEMPERATURE\fP   24"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_BATTERY_CHARGE\fP   25"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_BATTERY_CAPACITY\fP   26"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CHARGING_SOURCES_AVAILABLE\fP   34"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE\fP   35"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_SONG_NUMBER\fP   36"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_SONG_PLAYING\fP   37"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_NUMBER_STREAM_PACKETS\fP   38"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_MOTOR_CURRENT_LEFT\fP   54"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_MOTOR_CURRENT_RIGHT\fP   55"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_MOTOR_BRUSH_MAIN\fP   56"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_MOTOR_BRUSH_SIDE\fP   57"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_OFF\fP   0"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_PASSIVE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_SAFE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_OI_MODE_FULL\fP   3"
+.br
+.in -1c
+.SS "Typdefinitionen"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBroombaCommand\fP \fBroombaCommand_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBroombaSensorData\fP \fBroombaSensorData_t\fP"
+.br
+.in -1c
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

@@ -1,0 +1,52 @@
+.TH "Roomba Writer" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Roomba Writer \- 
+.SS "Funktionen"
+
+.in +1c
+.ti -1c
+.RI "int8_t \fBroomba_sendCommand\fP (\fBroombaCommand_t\fP *c)"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+Dieses Module ist für das schreiben eines Kommandos an den Roomba verantwortlich 
+.SH "Dokumentation der Funktionen"
+.PP 
+.SS "int8_t roomba_sendCommand (\fBroombaCommand_t\fP *c)"
+Sendet ein Kommando
+.PP
+Wenn ein \fBROOMBA_SENSORS\fP Befehl gesendet wird und derzeit noch ein Sensor Befehl in Arbeit ist\&.(Außer wenn \fBROOMBA_NONBLOCKING\fP gesetzt ist!)\&. Dieser Befehl bereitet das System auf den Empfang der Daten vor!
+.PP
+Bei den Befehlen \fBROOMBA_QUERY_LIST\fP und \fBROOMBA_STREAM\fP werden alle Gruppen Sensor Daten automatisch gegen ihre echte Werte getauscht! Beispiel: \fBROOMBA_SENSOR_GROUP_1\fP gegen: \fBROOMBA_SENSOR_BUMPS_WHEEL_DROPS\fP, \fBROOMBA_SENSOR_WALL\fP, \&.\&.\&.
+.PP
+Bei dem Befehl \fBROOMBA_STREAM_PAUSE_RESUME\fP wird bei den Befehl 0(Stream Abruf) Automatische das Interne System Mithilfe von \fBroomba_reset\fP gestopt! Bei 1 wird der Empfang von Stream Daten wieder vorbereitet\&.
+.PP
+\fBWarnung:\fP
+.RS 4
+Es darf vor dem Befehl \fBROOMBA_STREAM_PAUSE_RESUME\fP(Data 1) kein andere Sensor Befehl wie (\fBROOMBA_SENSORS\fP oder \fBROOMBA_QUERY_LIST\fP gesetzt worden sein!
+.RE
+.PP
+\fBParameter:\fP
+.RS 4
+\fIc\fP Kommando das gesendet werden soll
+.RE
+.PP
+\fBRückgabe:\fP
+.RS 4
+Mögliche Rückgabe Werte sind:
+.RE
+.PP
+.IP "\(bu" 2
+\fB0\fP kein Fehler
+.IP "\(bu" 2
+-\fBROOMBA_ERROR_TO_BIG\fP Angebe Gruppen überschreiten das Maximum von \fBROOMBA_MAX_DATA\fP Sensor Daten
+.IP "\(bu" 2
+\fB-\fBROOMBA_ERROR_AGAIN\fP\fP Keine SensorDaten vorhanden! Wird nur zurück geben wenn \fBROOMBA_NONBLOCKING\fP gesetzt ist! 
+.PP
+
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

@@ -1,0 +1,164 @@
+\hypertarget{group__roomba__print}{\section{Roomba Print Libary}
+\label{group__roomba__print}\index{Roomba Print Libary@{Roomba Print Libary}}
+}
+\subsection*{Datenstrukturen}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsensorString}{sensor\-String}
+\item 
+struct \hyperlink{structcommandString}{command\-String}
+\end{DoxyCompactItemize}
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__roomba__print_ga27a9ecb5dd155d9f2bae907545a6b839}{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G}(i)~\hyperlink{group__roomba__print_ga6c1d8b935c25685ddc669cf5732959c9}{sensor\-Strings}\mbox{[}i\mbox{]}.sensor\-Str
+\item 
+\#define \hyperlink{group__roomba__print_gaafe8e141e91feb307cb5e350c5f89ead}{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}()~\hyperlink{group__roomba__print_gabad382977fd4c5e46c059079738e61a5}{sensor\-String\-Size}
+\item 
+\#define \hyperlink{group__roomba__print_ga029025a55e418643b565d4a190cbdebc}{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G}(i)~\hyperlink{group__roomba__print_ga09654e789137e4251796c5b93e250ff8}{command\-Strings}\mbox{[}i-\/\hyperlink{group__roomba__commands__start_gaf1978389e19799d1dbf5e66303e86042}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-A\-R\-T}\mbox{]}.command\-Str
+\item 
+\#define \hyperlink{group__roomba__print_ga7514207411815f70138573592088eaf8}{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}()~\hyperlink{group__roomba__print_gaf00c5bc38c301b8cc77ea05a2c022406}{command\-String\-Size}
+\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structsensorString}{sensor\-String} \hyperlink{group__roomba__print_gaf352ce472b626ebab957aab98d88e93f}{sensor\-String\-\_\-t}
+\item 
+typedef struct \hyperlink{structcommandString}{command\-String} \hyperlink{group__roomba__print_ga9592eed8fec0d1b2dbe577e30b8bc959}{command\-String\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__roomba__print_ga6def1c53657c293448ed92c962ae81c1}{roomba\-\_\-print\-Sensor\-Data} (\hyperlink{group__roomba__def_gab15b5566c76fa573575afaccd593e86a}{roomba\-Sensor\-Data\-\_\-t} $\ast$data)
+\item 
+void \hyperlink{group__roomba__print_ga9b86b796d2df9340222c95e7124239dd}{roomba\-\_\-print\-Command} (\hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t} $\ast$c)
+\end{DoxyCompactItemize}
+\subsection*{Variablen}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__roomba__print_gaf352ce472b626ebab957aab98d88e93f}{sensor\-String\-\_\-t} \hyperlink{group__roomba__print_ga6c1d8b935c25685ddc669cf5732959c9}{sensor\-Strings} \mbox{[}$\,$\mbox{]}
+\item 
+const size\-\_\-t \hyperlink{group__roomba__print_gabad382977fd4c5e46c059079738e61a5}{sensor\-String\-Size}
+\item 
+\hyperlink{group__roomba__print_ga9592eed8fec0d1b2dbe577e30b8bc959}{command\-String\-\_\-t} \hyperlink{group__roomba__print_ga09654e789137e4251796c5b93e250ff8}{command\-Strings} \mbox{[}$\,$\mbox{]}
+\item 
+const size\-\_\-t \hyperlink{group__roomba__print_gaf00c5bc38c301b8cc77ea05a2c022406}{command\-String\-Size}
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Definiert Befehle um \hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t} und \hyperlink{group__roomba__def_gab15b5566c76fa573575afaccd593e86a}{roomba\-Sensor\-Data\-\_\-t} auszugeben
+
+{\bfseries Wahrung\-: Libary verbraucht sehr viel Speicher!} 
+
+\subsection{Makro-\/\-Dokumentation}
+\hypertarget{group__roomba__print_ga029025a55e418643b565d4a190cbdebc}{\index{Roomba Print Libary@{Roomba Print Libary}!G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G@{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G}}
+\index{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G@{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G(
+\begin{DoxyParamCaption}
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf command\-Strings}\mbox{[}i-\/{\bf R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-A\-R\-T}\mbox{]}.command\-Str}}\label{group__roomba__print_ga029025a55e418643b565d4a190cbdebc}
+Gibt Kommando String zurück \begin{DoxyReturn}{Rückgabe}
+String mit der Bezeichung 
+\end{DoxyReturn}
+\hypertarget{group__roomba__print_ga7514207411815f70138573592088eaf8}{\index{Roomba Print Libary@{Roomba Print Libary}!G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E@{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}}
+\index{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E@{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-T\-\_\-\-C\-O\-M\-M\-A\-N\-D\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf command\-String\-Size}}}\label{group__roomba__print_ga7514207411815f70138573592088eaf8}
+Bestimmt Größe des Arrays \begin{DoxyReturn}{Rückgabe}
+Größe des Arrays 
+\end{DoxyReturn}
+\hypertarget{group__roomba__print_ga27a9ecb5dd155d9f2bae907545a6b839}{\index{Roomba Print Libary@{Roomba Print Libary}!G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G@{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G}}
+\index{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G@{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G(
+\begin{DoxyParamCaption}
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~{\bf sensor\-Strings}\mbox{[}i\mbox{]}.sensor\-Str}}\label{group__roomba__print_ga27a9ecb5dd155d9f2bae907545a6b839}
+Gibt Sensor String zurück \begin{DoxyReturn}{Rückgabe}
+String mit der Bezeichnung 
+\end{DoxyReturn}
+\hypertarget{group__roomba__print_gaafe8e141e91feb307cb5e350c5f89ead}{\index{Roomba Print Libary@{Roomba Print Libary}!G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E@{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}}
+\index{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E@{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-T\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-\-S\-I\-Z\-E(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf sensor\-String\-Size}}}\label{group__roomba__print_gaafe8e141e91feb307cb5e350c5f89ead}
+Bestimmt Größe des Arrays \begin{DoxyReturn}{Rückgabe}
+Größe des Arrays 
+\end{DoxyReturn}
+
+
+\subsection{Dokumentation der benutzerdefinierten Typen}
+\hypertarget{group__roomba__print_ga9592eed8fec0d1b2dbe577e30b8bc959}{\index{Roomba Print Libary@{Roomba Print Libary}!command\-String\-\_\-t@{command\-String\-\_\-t}}
+\index{command\-String\-\_\-t@{command\-String\-\_\-t}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{command\-String\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf command\-String} {\bf command\-String\-\_\-t}}}\label{group__roomba__print_ga9592eed8fec0d1b2dbe577e30b8bc959}
+\hypertarget{group__roomba__print_gaf352ce472b626ebab957aab98d88e93f}{\index{Roomba Print Libary@{Roomba Print Libary}!sensor\-String\-\_\-t@{sensor\-String\-\_\-t}}
+\index{sensor\-String\-\_\-t@{sensor\-String\-\_\-t}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{sensor\-String\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf sensor\-String} {\bf sensor\-String\-\_\-t}}}\label{group__roomba__print_gaf352ce472b626ebab957aab98d88e93f}
+
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{group__roomba__print_ga9b86b796d2df9340222c95e7124239dd}{\index{Roomba Print Libary@{Roomba Print Libary}!roomba\-\_\-print\-Command@{roomba\-\_\-print\-Command}}
+\index{roomba\-\_\-print\-Command@{roomba\-\_\-print\-Command}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{roomba\-\_\-print\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void roomba\-\_\-print\-Command (
+\begin{DoxyParamCaption}
+\item[{{\bf roomba\-Command\-\_\-t} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__print_ga9b86b796d2df9340222c95e7124239dd}
+Gibt ein Befehl aus mit der
+
+Syntax\-: \begin{DoxyVerb} Command: NAME_DES_COMMAND(%d) Size: %d Data: %d = 0x%x, ...\n
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}{Parameter}
+{\em c} & Kommando das Ausgaben werden soll \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__roomba__print_ga6def1c53657c293448ed92c962ae81c1}{\index{Roomba Print Libary@{Roomba Print Libary}!roomba\-\_\-print\-Sensor\-Data@{roomba\-\_\-print\-Sensor\-Data}}
+\index{roomba\-\_\-print\-Sensor\-Data@{roomba\-\_\-print\-Sensor\-Data}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{roomba\-\_\-print\-Sensor\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void roomba\-\_\-print\-Sensor\-Data (
+\begin{DoxyParamCaption}
+\item[{{\bf roomba\-Sensor\-Data\-\_\-t} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__print_ga6def1c53657c293448ed92c962ae81c1}
+Gibt einen Sensor Wert mit Namen aus
+
+Syntax\-: \begin{DoxyVerb} SensorID: NAME_DES_SENSORS(%d) Data: 0x%x = %d\n
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}{Parameter}
+{\em data} & Wert der Ausgeben werden soll \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variablen-\/\-Dokumentation}
+\hypertarget{group__roomba__print_ga09654e789137e4251796c5b93e250ff8}{\index{Roomba Print Libary@{Roomba Print Libary}!command\-Strings@{command\-Strings}}
+\index{command\-Strings@{command\-Strings}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{command\-Strings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf command\-String\-\_\-t} command\-Strings\mbox{[}$\,$\mbox{]}}}\label{group__roomba__print_ga09654e789137e4251796c5b93e250ff8}
+Array mit allen Kommando Bezeichnungen
+
+Beispiel\-: \begin{DoxyVerb} printf("%s", GET_COMMAND_STRING(ROOMBA_DRIVE));\end{DoxyVerb}
+ \hypertarget{group__roomba__print_gaf00c5bc38c301b8cc77ea05a2c022406}{\index{Roomba Print Libary@{Roomba Print Libary}!command\-String\-Size@{command\-String\-Size}}
+\index{command\-String\-Size@{command\-String\-Size}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{command\-String\-Size}]{\setlength{\rightskip}{0pt plus 5cm}const size\-\_\-t command\-String\-Size}}\label{group__roomba__print_gaf00c5bc38c301b8cc77ea05a2c022406}
+Größe des Command\-Strings Array \hypertarget{group__roomba__print_ga6c1d8b935c25685ddc669cf5732959c9}{\index{Roomba Print Libary@{Roomba Print Libary}!sensor\-Strings@{sensor\-Strings}}
+\index{sensor\-Strings@{sensor\-Strings}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{sensor\-Strings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sensor\-String\-\_\-t} sensor\-Strings\mbox{[}$\,$\mbox{]}}}\label{group__roomba__print_ga6c1d8b935c25685ddc669cf5732959c9}
+Array mit allen Sensor Bezeichnungen
+
+Beispiel\-: \begin{DoxyVerb} printf("%s", GET_SENSOR_STRING(ROOMBA_SENSOR_BUMPS_WHEEL_DROPS));\end{DoxyVerb}
+ \hypertarget{group__roomba__print_gabad382977fd4c5e46c059079738e61a5}{\index{Roomba Print Libary@{Roomba Print Libary}!sensor\-String\-Size@{sensor\-String\-Size}}
+\index{sensor\-String\-Size@{sensor\-String\-Size}!Roomba Print Libary@{Roomba Print Libary}}
+\subsubsection[{sensor\-String\-Size}]{\setlength{\rightskip}{0pt plus 5cm}const size\-\_\-t sensor\-String\-Size}}\label{group__roomba__print_gabad382977fd4c5e46c059079738e61a5}
+Größe des Sensor\-Strings Array 

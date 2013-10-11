@@ -1,0 +1,38 @@
+.TH "Roomba Extra Befehle" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Roomba Extra Befehle \- 
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROOMBA_EXTRA_STREAM\fP   200"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_EXTRA_STREAM_PAUSE_RESUME\fP   201"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+
+.SH "Makro-Dokumentation"
+.PP 
+.SS "#define ROOMBA_EXTRA_STREAM   200"
+Erweiterer Stream Befehl
+.PP
+Feld genauso wie bei \fBROOMBA_STREAM\fP nur data[0] = high Byte Wait Time(uint16_t) data[1] = low Byte Wait Time(uint16_t)
+.PP
+data[2] = Anzahl der SensorIDs data[3-ROOMBA_MAX_DATA] = SensorIDs 
+.SS "#define ROOMBA_EXTRA_STREAM_PAUSE_RESUME   201"
+Startet und Stop Extra Stream 
+.PP
+\fBSiehe auch:\fP
+.RS 4
+\fBROOMBA_STREAM_PAUSE_RESUME\fP 
+.RE
+.PP
+
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

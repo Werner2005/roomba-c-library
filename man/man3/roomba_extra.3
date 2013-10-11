@@ -1,0 +1,63 @@
+.TH "Roomba Extra Libary" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Roomba Extra Libary \- 
+.SS "Funktionen"
+
+.in +1c
+.ti -1c
+.RI "int8_t \fBroomba_extra_init\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBroomba_extra_check\fP (\fBroombaCommand_t\fP *command)"
+.br
+.ti -1c
+.RI "int8_t \fBroomba_extra_handle_command\fP (\fBroombaCommand_t\fP *command)"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+Defineirt eine Libary um die Interne Befehle des Roomba zu erweitern 
+.SH "Dokumentation der Funktionen"
+.PP 
+.SS "uint8_t roomba_extra_check (\fBroombaCommand_t\fP *command)"
+Überprüft ob ein Befehl ein Extra Befehl ist 
+.PP
+\fBParameter:\fP
+.RS 4
+\fIcommand\fP Commando das Überprüft werden soll 
+.RE
+.PP
+\fBRückgabe:\fP
+.RS 4
+Folgende Rückgaben sind möglichen
+.IP "\(bu" 2
+0: Ist kein Extra Befehl
+.IP "\(bu" 2
+\fB\fBROOMBA_EXTRA_STREAM\fP:\fP Besondere Sensor Stream es ist Möglichkeit die Intervalldauer einzustellen\&. Befehl verwendet \fBRoomba Repeat Libary\fP
+.IP "\(bu" 2
+\fB\fBROOMBA_EXTRA_STREAM_PAUSE_RESUME\fP:\fP Starte oder Stoppt Extra Stream 
+.PP
+.RE
+.PP
+
+.SS "int8_t roomba_extra_handle_command (\fBroombaCommand_t\fP *command)"
+Führt ein Extra Kommando aus 
+.PP
+\fBParameter:\fP
+.RS 4
+\fIcommand\fP Kommando 
+.RE
+.PP
+\fBRückgabe:\fP
+.RS 4
+< 0 Fehler > kein Fehler 
+.RE
+.PP
+
+.SS "int8_t roomba_extra_init ()"
+Roomba Extra Init 
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

@@ -1,0 +1,181 @@
+.TH "Roomba Print Libary" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Roomba Print Libary \- 
+.SS "Datenstrukturen"
+
+.in +1c
+.ti -1c
+.RI "struct \fBsensorString\fP"
+.br
+.ti -1c
+.RI "struct \fBcommandString\fP"
+.br
+.in -1c
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGET_SENSOR_STRING\fP(i)   \fBsensorStrings\fP[i]\&.sensorStr"
+.br
+.ti -1c
+.RI "#define \fBGET_SENSOR_STRING_SIZE\fP()   \fBsensorStringSize\fP"
+.br
+.ti -1c
+.RI "#define \fBGET_COMMAND_STRING\fP(i)   \fBcommandStrings\fP[i-\fBROOMBA_START\fP]\&.commandStr"
+.br
+.ti -1c
+.RI "#define \fBGET_COMMAND_STRING_SIZE\fP()   \fBcommandStringSize\fP"
+.br
+.in -1c
+.SS "Typdefinitionen"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBsensorString\fP \fBsensorString_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBcommandString\fP \fBcommandString_t\fP"
+.br
+.in -1c
+.SS "Funktionen"
+
+.in +1c
+.ti -1c
+.RI "void \fBroomba_printSensorData\fP (\fBroombaSensorData_t\fP *data)"
+.br
+.ti -1c
+.RI "void \fBroomba_printCommand\fP (\fBroombaCommand_t\fP *c)"
+.br
+.in -1c
+.SS "Variablen"
+
+.in +1c
+.ti -1c
+.RI "\fBsensorString_t\fP \fBsensorStrings\fP []"
+.br
+.ti -1c
+.RI "const size_t \fBsensorStringSize\fP"
+.br
+.ti -1c
+.RI "\fBcommandString_t\fP \fBcommandStrings\fP []"
+.br
+.ti -1c
+.RI "const size_t \fBcommandStringSize\fP"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+Definiert Befehle um \fBroombaCommand_t\fP und \fBroombaSensorData_t\fP auszugeben
+.PP
+\fBWahrung: Libary verbraucht sehr viel Speicher!\fP 
+.SH "Makro-Dokumentation"
+.PP 
+.SS "#define GET_COMMAND_STRING(i)   \fBcommandStrings\fP[i-\fBROOMBA_START\fP]\&.commandStr"
+Gibt Kommando String zurück 
+.PP
+\fBRückgabe:\fP
+.RS 4
+String mit der Bezeichung 
+.RE
+.PP
+
+.SS "#define GET_COMMAND_STRING_SIZE()   \fBcommandStringSize\fP"
+Bestimmt Größe des Arrays 
+.PP
+\fBRückgabe:\fP
+.RS 4
+Größe des Arrays 
+.RE
+.PP
+
+.SS "#define GET_SENSOR_STRING(i)   \fBsensorStrings\fP[i]\&.sensorStr"
+Gibt Sensor String zurück 
+.PP
+\fBRückgabe:\fP
+.RS 4
+String mit der Bezeichnung 
+.RE
+.PP
+
+.SS "#define GET_SENSOR_STRING_SIZE()   \fBsensorStringSize\fP"
+Bestimmt Größe des Arrays 
+.PP
+\fBRückgabe:\fP
+.RS 4
+Größe des Arrays 
+.RE
+.PP
+
+.SH "Dokumentation der benutzerdefinierten Typen"
+.PP 
+.SS "typedef struct \fBcommandString\fP \fBcommandString_t\fP"
+
+.SS "typedef struct \fBsensorString\fP \fBsensorString_t\fP"
+
+.SH "Dokumentation der Funktionen"
+.PP 
+.SS "void roomba_printCommand (\fBroombaCommand_t\fP *c)"
+Gibt ein Befehl aus mit der
+.PP
+Syntax: 
+.PP
+.nf
+ Command: NAME_DES_COMMAND(%d) Size: %d Data: %d = 0x%x, ...\n
+
+.fi
+.PP
+.PP
+\fBParameter:\fP
+.RS 4
+\fIc\fP Kommando das Ausgaben werden soll 
+.RE
+.PP
+
+.SS "void roomba_printSensorData (\fBroombaSensorData_t\fP *data)"
+Gibt einen Sensor Wert mit Namen aus
+.PP
+Syntax: 
+.PP
+.nf
+ SensorID: NAME_DES_SENSORS(%d) Data: 0x%x = %d\n
+
+.fi
+.PP
+.PP
+\fBParameter:\fP
+.RS 4
+\fIdata\fP Wert der Ausgeben werden soll 
+.RE
+.PP
+
+.SH "Variablen-Dokumentation"
+.PP 
+.SS "\fBcommandString_t\fP commandStrings[]"
+Array mit allen Kommando Bezeichnungen
+.PP
+Beispiel: 
+.PP
+.nf
+ printf("%s", GET_COMMAND_STRING(ROOMBA_DRIVE));
+.fi
+.PP
+ 
+.SS "const size_t commandStringSize"
+Größe des CommandStrings Array 
+.SS "\fBsensorString_t\fP sensorStrings[]"
+Array mit allen Sensor Bezeichnungen
+.PP
+Beispiel: 
+.PP
+.nf
+ printf("%s", GET_SENSOR_STRING(ROOMBA_SENSOR_BUMPS_WHEEL_DROPS));
+.fi
+.PP
+ 
+.SS "const size_t sensorStringSize"
+Größe des SensorStrings Array 
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

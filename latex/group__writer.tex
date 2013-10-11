@@ -1,0 +1,46 @@
+\hypertarget{group__writer}{\section{Roomba Writer}
+\label{group__writer}\index{Roomba Writer@{Roomba Writer}}
+}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+int8\-\_\-t \hyperlink{group__writer_ga2dc1687a47b69f264f252ccdb006370f}{roomba\-\_\-send\-Command} (\hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t} $\ast$c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Dieses Module ist für das schreiben eines Kommandos an den Roomba verantwortlich 
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{group__writer_ga2dc1687a47b69f264f252ccdb006370f}{\index{Roomba Writer@{Roomba Writer}!roomba\-\_\-send\-Command@{roomba\-\_\-send\-Command}}
+\index{roomba\-\_\-send\-Command@{roomba\-\_\-send\-Command}!Roomba Writer@{Roomba Writer}}
+\subsubsection[{roomba\-\_\-send\-Command}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-send\-Command (
+\begin{DoxyParamCaption}
+\item[{{\bf roomba\-Command\-\_\-t} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{group__writer_ga2dc1687a47b69f264f252ccdb006370f}
+Sendet ein Kommando
+
+Wenn ein \hyperlink{group__roomba__commands__sensor_gaef0d27b1b9b49c6aaa0a7241e7e41201}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-S} Befehl gesendet wird und derzeit noch ein Sensor Befehl in Arbeit ist.(Außer wenn \hyperlink{group__reader_gad57079c91b29054a870a52e296de7c8f}{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G} gesetzt ist!). Dieser Befehl bereitet das System auf den Empfang der Daten vor!
+
+Bei den Befehlen \hyperlink{group__roomba__commands__sensor_gaa4ae696773b751ed0b4828ebe3861d69}{R\-O\-O\-M\-B\-A\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-L\-I\-S\-T} und \hyperlink{group__roomba__commands__sensor_gafc6423e54083bd2b1abc99198bbbf739}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M} werden alle Gruppen Sensor Daten automatisch gegen ihre echte Werte getauscht! Beispiel\-: \hyperlink{group__roomba__sensor__group_ga40a35c78fe86679d04381b8c69488766}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-G\-R\-O\-U\-P\-\_\-1} gegen\-: \hyperlink{group__roomba__sensor__extern_ga52d4985b7063d9a96315c241657620a3}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-M\-P\-S\-\_\-\-W\-H\-E\-E\-L\-\_\-\-D\-R\-O\-P\-S}, \hyperlink{group__roomba__sensor__extern_ga5398879cecaf2fcfb997b4e3cba53f88}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-W\-A\-L\-L}, ...
+
+Bei dem Befehl \hyperlink{group__roomba__commands__sensor_ga6389061ebdb4feec1198ea5c4f6fae55}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-U\-S\-E\-\_\-\-R\-E\-S\-U\-M\-E} wird bei den Befehl 0(Stream Abruf) Automatische das Interne System Mithilfe von \hyperlink{group__reader_ga37eb8be9c6766f717f12e83837cd1cd9}{roomba\-\_\-reset} gestopt! Bei 1 wird der Empfang von Stream Daten wieder vorbereitet.
+
+\begin{DoxyWarning}{Warnung}
+Es darf vor dem Befehl \hyperlink{group__roomba__commands__sensor_ga6389061ebdb4feec1198ea5c4f6fae55}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-U\-S\-E\-\_\-\-R\-E\-S\-U\-M\-E}(Data 1) kein andere Sensor Befehl wie (\hyperlink{group__roomba__commands__sensor_gaef0d27b1b9b49c6aaa0a7241e7e41201}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-S} oder \hyperlink{group__roomba__commands__sensor_gaa4ae696773b751ed0b4828ebe3861d69}{R\-O\-O\-M\-B\-A\-\_\-\-Q\-U\-E\-R\-Y\-\_\-\-L\-I\-S\-T} gesetzt worden sein!
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameter}
+{\em c} & Kommando das gesendet werden soll\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Mögliche Rückgabe Werte sind\-:
+\end{DoxyReturn}
+
+\begin{DoxyItemize}
+\item {\bfseries 0} kein Fehler
+\item -\/\hyperlink{group__roomba__error_ga685837574afe13c559db50cb9b5c012a}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-T\-O\-\_\-\-B\-I\-G} Angebe Gruppen überschreiten das Maximum von \hyperlink{group__roomba__def_ga53c32c129fde6d7594f43690d6d81d97}{R\-O\-O\-M\-B\-A\-\_\-\-M\-A\-X\-\_\-\-D\-A\-T\-A} Sensor Daten
+\item {\bfseries -\/\hyperlink{group__roomba__error_gad35f7cffbb363514d9453cea041593e4}{R\-O\-O\-M\-B\-A\-\_\-\-E\-R\-R\-O\-R\-\_\-\-A\-G\-A\-I\-N}} Keine Sensor\-Daten vorhanden! Wird nur zurück geben wenn \hyperlink{group__reader_gad57079c91b29054a870a52e296de7c8f}{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G} gesetzt ist! 
+\end{DoxyItemize}

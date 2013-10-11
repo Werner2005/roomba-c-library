@@ -1,0 +1,61 @@
+\hypertarget{group__roomba__extra}{\section{Roomba Extra Libary}
+\label{group__roomba__extra}\index{Roomba Extra Libary@{Roomba Extra Libary}}
+}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+int8\-\_\-t \hyperlink{group__roomba__extra_ga628536b5be09953da707128ad5b65644}{roomba\-\_\-extra\-\_\-init} ()
+\item 
+uint8\-\_\-t \hyperlink{group__roomba__extra_ga1f8c1042a260d62e25bec5311dd7e2e0}{roomba\-\_\-extra\-\_\-check} (\hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t} $\ast$command)
+\item 
+int8\-\_\-t \hyperlink{group__roomba__extra_gabd4a3547abc24a615cb7d5b87aaf9252}{roomba\-\_\-extra\-\_\-handle\-\_\-command} (\hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t} $\ast$command)
+\end{DoxyCompactItemize}
+
+
+\subsection{Ausführliche Beschreibung}
+Defineirt eine Libary um die Interne Befehle des Roomba zu erweitern 
+
+\subsection{Dokumentation der Funktionen}
+\hypertarget{group__roomba__extra_ga1f8c1042a260d62e25bec5311dd7e2e0}{\index{Roomba Extra Libary@{Roomba Extra Libary}!roomba\-\_\-extra\-\_\-check@{roomba\-\_\-extra\-\_\-check}}
+\index{roomba\-\_\-extra\-\_\-check@{roomba\-\_\-extra\-\_\-check}!Roomba Extra Libary@{Roomba Extra Libary}}
+\subsubsection[{roomba\-\_\-extra\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t roomba\-\_\-extra\-\_\-check (
+\begin{DoxyParamCaption}
+\item[{{\bf roomba\-Command\-\_\-t} $\ast$}]{command}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__extra_ga1f8c1042a260d62e25bec5311dd7e2e0}
+Überprüft ob ein Befehl ein Extra Befehl ist 
+\begin{DoxyParams}{Parameter}
+{\em command} & Commando das Überprüft werden soll \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+Folgende Rückgaben sind möglichen
+\begin{DoxyItemize}
+\item 0\-: Ist kein Extra Befehl
+\item {\bfseries \hyperlink{group__roomba__commands__extra_ga4df72d1f10ba6ced0986ce73225772f1}{R\-O\-O\-M\-B\-A\-\_\-\-E\-X\-T\-R\-A\-\_\-\-S\-T\-R\-E\-A\-M}\-:} Besondere Sensor Stream es ist Möglichkeit die Intervalldauer einzustellen. Befehl verwendet \hyperlink{group__roomba__repeat}{Roomba Repeat Libary}
+\item {\bfseries \hyperlink{group__roomba__commands__extra_ga0bea168edae0eebe638d2aa678c3f6e2}{R\-O\-O\-M\-B\-A\-\_\-\-E\-X\-T\-R\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-P\-A\-U\-S\-E\-\_\-\-R\-E\-S\-U\-M\-E}\-:} Starte oder Stoppt Extra Stream 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{group__roomba__extra_gabd4a3547abc24a615cb7d5b87aaf9252}{\index{Roomba Extra Libary@{Roomba Extra Libary}!roomba\-\_\-extra\-\_\-handle\-\_\-command@{roomba\-\_\-extra\-\_\-handle\-\_\-command}}
+\index{roomba\-\_\-extra\-\_\-handle\-\_\-command@{roomba\-\_\-extra\-\_\-handle\-\_\-command}!Roomba Extra Libary@{Roomba Extra Libary}}
+\subsubsection[{roomba\-\_\-extra\-\_\-handle\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-extra\-\_\-handle\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{{\bf roomba\-Command\-\_\-t} $\ast$}]{command}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__extra_gabd4a3547abc24a615cb7d5b87aaf9252}
+Führt ein Extra Kommando aus 
+\begin{DoxyParams}{Parameter}
+{\em command} & Kommando \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rückgabe}
+$<$ 0 Fehler $>$ kein Fehler 
+\end{DoxyReturn}
+\hypertarget{group__roomba__extra_ga628536b5be09953da707128ad5b65644}{\index{Roomba Extra Libary@{Roomba Extra Libary}!roomba\-\_\-extra\-\_\-init@{roomba\-\_\-extra\-\_\-init}}
+\index{roomba\-\_\-extra\-\_\-init@{roomba\-\_\-extra\-\_\-init}!Roomba Extra Libary@{Roomba Extra Libary}}
+\subsubsection[{roomba\-\_\-extra\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}int8\-\_\-t roomba\-\_\-extra\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{group__roomba__extra_ga628536b5be09953da707128ad5b65644}
+Roomba Extra Init 

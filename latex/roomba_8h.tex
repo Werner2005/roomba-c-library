@@ -1,0 +1,53 @@
+\hypertarget{roomba_8h}{\section{/home/andreas/roomba/lib/includes/roomba.h-\/\-Dateireferenz}
+\label{roomba_8h}\index{/home/andreas/roomba/lib/includes/roomba.\-h@{/home/andreas/roomba/lib/includes/roomba.\-h}}
+}
+{\ttfamily \#include $<$roomba\-\_\-def.\-h$>$}\\*
+\subsection*{Makrodefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__reader_gad57079c91b29054a870a52e296de7c8f}{R\-O\-O\-M\-B\-A\-\_\-\-N\-O\-N\-B\-L\-O\-C\-K\-I\-N\-G}
+\item 
+\#define \hyperlink{group__reader_ga6c7a085dd8b07086302a3522eacb1d7b}{R\-O\-O\-M\-B\-A\-\_\-\-S\-H\-O\-R\-T\-\_\-\-R\-E\-A\-D}
+\item 
+\#define \hyperlink{group__reader_gab5ab726f0bd857186141a6e7659f75df}{R\-O\-O\-M\-B\-A\-\_\-\-S\-E\-N\-S\-O\-R\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~173
+\item 
+\#define \hyperlink{group__reader_ga2079001845af1fd6a4e1155bb27519c6}{R\-O\-O\-M\-B\-A\-\_\-\-S\-T\-R\-E\-A\-M\-\_\-\-I\-G\-N\-O\-R\-E}~50
+\end{DoxyCompactItemize}
+\subsection*{Typdefinitionen}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group__reader_ga74bd1c0af119d3680033932aee94d998}{roomba\-Status} \hyperlink{group__reader_gaee08b378f859db5b29b55d1c980a8df9}{roomba\-Status\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Aufzählungen}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__reader_ga74bd1c0af119d3680033932aee94d998}{roomba\-Status} \{ \\*
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a0e9a37114c0e458d28d52f06ec0f2242}{idle}, 
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a0f5565850b8d65e6ecd05739440bb48a}{singeldata}, 
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a084e12cf09138eec8d807c9ca90d1021}{group}, 
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a87aed4f2a754303740474022109f678a}{query}, 
+\\*
+\hyperlink{group__reader_gga74bd1c0af119d3680033932aee94d998a8c135cc3d1b918bd7b75a65104cac458}{stream}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Funktionen}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__reader__writer_gaa1694210db27c4eeb1999a64eb006d53}{roomba\-\_\-init} (int($\ast$w)(unsigned char c))
+\item 
+int8\-\_\-t \hyperlink{group__reader_ga0174eded302cf02ac49a990e385cfe90}{roomba\-\_\-read} (uint8\-\_\-t c)
+\item 
+int8\-\_\-t \hyperlink{group__reader_ga3082696b4e010cc447298466b4f6d90b}{roomba\-\_\-get\-Sensor\-Data} (\hyperlink{group__roomba__def_gab15b5566c76fa573575afaccd593e86a}{roomba\-Sensor\-Data\-\_\-t} $\ast$data)
+\item 
+void \hyperlink{group__reader_ga37eb8be9c6766f717f12e83837cd1cd9}{roomba\-\_\-reset} ()
+\item 
+int8\-\_\-t \hyperlink{group__writer_ga2dc1687a47b69f264f252ccdb006370f}{roomba\-\_\-send\-Command} (\hyperlink{group__roomba__def_gae2455d95f239542954d232e31bb04a0e}{roomba\-Command\-\_\-t} $\ast$c)
+\item 
+uint8\-\_\-t \hyperlink{group__reader_ga5e82acf96df5ac30063b6abbcbeeeea9}{roomba\-\_\-has\-Sensor\-Data} ()
+\item 
+int8\-\_\-t \hyperlink{group__reader__writer_gac3bb53131af4f76e9f10b2270ef713f1}{roomba\-\_\-get\-Error} ()
+\item 
+\hyperlink{group__reader_gaee08b378f859db5b29b55d1c980a8df9}{roomba\-Status\-\_\-t} \hyperlink{group__reader_ga59df7bd192d391fdac537ea1ddaf19f5}{roomba\-\_\-get\-Status} ()
+\item 
+void \hyperlink{group__reader_ga4f970b48b2983cf826a29d2cafc05dc3}{roomba\-\_\-abort\-\_\-sensor} ()
+\end{DoxyCompactItemize}

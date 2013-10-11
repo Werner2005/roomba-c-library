@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Roomba Library: Motor Steuerungskommandos</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Roomba Library
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Erzeugt von Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Suchen');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Hauptseite</span></a></li>
+      <li><a href="pages.html"><span>Zusätzliche&#160;Informationen</span></a></li>
+      <li><a href="modules.html"><span>Module</span></a></li>
+      <li><a href="annotated.html"><span>Datenstrukturen</span></a></li>
+      <li><a href="files.html"><span>Dateien</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Suchen" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('group__roomba__commands__motor.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Alle</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Datenstrukturen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Dateien</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funktionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variablen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typdefinitionen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Aufzählungen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Aufzählungswerte</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Gruppen</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Seiten</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Makrodefinitionen</a>  </div>
+  <div class="headertitle">
+<div class="title">Motor Steuerungskommandos<div class="ingroups"><a class="el" href="group__roomba__commands.html">Roomba Kommandos</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Makrodefinitionen</h2></td></tr>
+<tr class="memitem:gacf921626edb00b06fbdf86312d8c7341"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#gacf921626edb00b06fbdf86312d8c7341">ROOMBA_DRIVE</a>&#160;&#160;&#160;137</td></tr>
+<tr class="separator:gacf921626edb00b06fbdf86312d8c7341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26e08e4c9584dfc518700fd299eddc96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga26e08e4c9584dfc518700fd299eddc96">ROOMBA_DRIVE_DIRECT</a>&#160;&#160;&#160;145</td></tr>
+<tr class="separator:ga26e08e4c9584dfc518700fd299eddc96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga513cf01360599037868593fc9525bd6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga513cf01360599037868593fc9525bd6e">ROOMBA_DRIVE_PWM</a>&#160;&#160;&#160;146</td></tr>
+<tr class="separator:ga513cf01360599037868593fc9525bd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf0186e2adef9b3aa86daf2deb35e0ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#gadf0186e2adef9b3aa86daf2deb35e0ff">ROOMBA_MOTORS</a>&#160;&#160;&#160;138</td></tr>
+<tr class="separator:gadf0186e2adef9b3aa86daf2deb35e0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7fba3d9876ee967f6bbefc85a05e8fed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga7fba3d9876ee967f6bbefc85a05e8fed">ROOMBA_MOTORS_PWM</a>&#160;&#160;&#160;144</td></tr>
+<tr class="separator:ga7fba3d9876ee967f6bbefc85a05e8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8173cfeebe0443357775116393d5964"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#gab8173cfeebe0443357775116393d5964">ROOMBA_LEDS</a>&#160;&#160;&#160;139</td></tr>
+<tr class="separator:gab8173cfeebe0443357775116393d5964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c8923fd04b3275a57ca487f34990743"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga9c8923fd04b3275a57ca487f34990743">ROOMBA_LEDS_SCHEDULING</a>&#160;&#160;&#160;162</td></tr>
+<tr class="separator:ga9c8923fd04b3275a57ca487f34990743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ea5e809eb83d4bf5dd6a6f33dabffae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga1ea5e809eb83d4bf5dd6a6f33dabffae">ROOMBA_LEDS_DIGIT_RAW</a>&#160;&#160;&#160;163</td></tr>
+<tr class="separator:ga1ea5e809eb83d4bf5dd6a6f33dabffae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72bfc393689d5c9aa839df84e21888f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga72bfc393689d5c9aa839df84e21888f7">ROOMBA_LEDS_DIGIT_ASCII</a>&#160;&#160;&#160;164</td></tr>
+<tr class="separator:ga72bfc393689d5c9aa839df84e21888f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga57cbce423408ed2ed3595f504ec300cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga57cbce423408ed2ed3595f504ec300cb">ROOMBA_BUTTONS</a>&#160;&#160;&#160;165</td></tr>
+<tr class="separator:ga57cbce423408ed2ed3595f504ec300cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade5b4a0d2f24f3f551bf43aedbf6e653"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#gade5b4a0d2f24f3f551bf43aedbf6e653">ROOMBA_SONG</a>&#160;&#160;&#160;140</td></tr>
+<tr class="separator:gade5b4a0d2f24f3f551bf43aedbf6e653"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga47c9ccefb9e9e34108cc37339ae60f58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__roomba__commands__motor.html#ga47c9ccefb9e9e34108cc37339ae60f58">ROOMBA_PLAY</a>&#160;&#160;&#160;141</td></tr>
+<tr class="separator:ga47c9ccefb9e9e34108cc37339ae60f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Ausführliche Beschreibung</h2>
+<h2 class="groupheader">Makro-Dokumentation</h2>
+<a class="anchor" id="ga57cbce423408ed2ed3595f504ec300cb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_BUTTONS&#160;&#160;&#160;165</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Mit diesem Befehl können die Knöpfe des Roombas gedrückt werden. Hiebei wird ebenfalls eine 8-Bit Maske verwendet. Syntax: Clock&amp;Schedule&amp;Day&amp;Hour&amp;Minute&amp;Dock&amp;Spot&amp;Clean Syntax: [165] [Buttons] </p>
+
+</div>
+</div>
+<a class="anchor" id="gacf921626edb00b06fbdf86312d8c7341"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_DRIVE&#160;&#160;&#160;137</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Startet Bewegung Syntax Syntax: [Velocity high byte] [Velocity low byte] [Radius high byte] [Radius low byte] Velocity (-500 - 500 mm/s) Radius (-2000 - 2000 mm) </p>
+
+</div>
+</div>
+<a class="anchor" id="ga26e08e4c9584dfc518700fd299eddc96"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_DRIVE_DIRECT&#160;&#160;&#160;145</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Motoren Einzel Steuern Syntax: [Right velocity high byte] [Right velocity low byte] [Left velocity high byte] [Left velocity low byte]</p>
+<p>Auf dem Roomba 780 dm/s nicht mm/s </p>
+
+</div>
+</div>
+<a class="anchor" id="ga513cf01360599037868593fc9525bd6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_DRIVE_PWM&#160;&#160;&#160;146</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Steuert die Motoren über PWM direkt an Syntax:[Right PWM high byte] [Right PWM low byte] [Left PWM high byte] [Left PWM low byte] </p>
+
+</div>
+</div>
+<a class="anchor" id="gab8173cfeebe0443357775116393d5964"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_LEDS&#160;&#160;&#160;139</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Steuert alle LEDs des Roombars. Welche der LEDs hierbei leuchten sollen wird ebenfalls über eine 8-Bit Maske festgelegte. Syntax: Reserved&amp;Reserved&amp;Reserved&amp;Reserved&amp;Check Robot&amp;Dock&amp;Spot&amp;Debris. Danach folgt Die Fabe der Power LED und die helligkeit. Syntax: [139] [LED Bits] [Clean/Power Color] [Clean/Power Intensity] </p>
+
+</div>
+</div>
+<a class="anchor" id="ga72bfc393689d5c9aa839df84e21888f7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_LEDS_DIGIT_ASCII&#160;&#160;&#160;164</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Hier kann die Siebensegment Anzeige gesteuert werden. Hierbei werden die einzelne Siebensegment Anzeigen mit hilf von ASCII Zeichen gesteuert. Diese müssen nicht unbedingt korrekt angezeigt werden. Die Zeichen von ASCII Zeichen 32 bis 126 werden von Roomba verstanden und angezeigt(Alle Großbuchstaben + Sonderzeichen) Syntax: [164] [Digit 3 ASCII] [Digit 2 ASCII] [Digit 1 ASCII] [Digit 0 ASCII] </p>
+
+</div>
+</div>
+<a class="anchor" id="ga1ea5e809eb83d4bf5dd6a6f33dabffae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_LEDS_DIGIT_RAW&#160;&#160;&#160;163</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Hier kann die Siebensegment anzeige des Roombars gesteuert werden. Es gibt hierbei 4 Siebensegment Anzeigen die über eine 8-Bit Maske gesteuert wird Syntax: Reserved&amp;GF&amp;E&amp;D&amp;CB&amp;A Syntax: [163] [Digit 3 Bits] [Digit 2 Bits] [Digit 1 Bits] [Digit 0 Bits] </p>
+
+</div>
+</div>
+<a class="anchor" id="ga9c8923fd04b3275a57ca487f34990743"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_LEDS_SCHEDULING&#160;&#160;&#160;162</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Streut die oberen LEDs. Diese sind für die Anzeige des Zeitplanes zuständig. Hierbei kann über eine 8-Bit Maske die Wochentags LEDs gesteuert werden Syntax: Reserved&amp;Sat&amp;Fri&amp;Thu&amp;Wed&amp;Tue&amp;Mon&amp;Sun. Danach könenn noch 5 weiter LEDs über eine 8-Bit Maske gesteuert werden: Reserved&amp;Reserved&amp;Reserved&amp;Schedule&amp;Clock&amp;AM&amp;PM&amp;Colon(:) Syntax: [162] [Weekday LED Bits][Scheduling LED Bits] </p>
+
+</div>
+</div>
+<a class="anchor" id="gadf0186e2adef9b3aa86daf2deb35e0ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_MOTORS&#160;&#160;&#160;138</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Aktiviert die Motoren für die Reinigung(Sauger hier inbegriffen). Dieser Befehl aktiviert den Motor mit voller Leistung. Welcher Motor hierbei eingeschaltet wird oder welche Richtung wird über eine 8 Bit Bitmaske gesetzt. Syntax: Reserved&amp;Reserved&amp;Reserved&amp;Main Brush Direction&amp;Side Bruch Clockwiese&amp;Main Brush&amp;Vacuum&amp;Side Brush </p>
+
+</div>
+</div>
+<a class="anchor" id="ga7fba3d9876ee967f6bbefc85a05e8fed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_MOTORS_PWM&#160;&#160;&#160;144</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Direkte PWM Steuerung der Reinigungsmotoren.Syntax: [144] [Main Brush PWM] [Side Brush PWM] [Vacuum PWM] </p>
+
+</div>
+</div>
+<a class="anchor" id="ga47c9ccefb9e9e34108cc37339ae60f58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_PLAY&#160;&#160;&#160;141</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Spielt einen gespeicherten Song ab Syntax: [141] [Song Number] </p>
+
+</div>
+</div>
+<a class="anchor" id="gade5b4a0d2f24f3f551bf43aedbf6e653"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ROOMBA_SONG&#160;&#160;&#160;140</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>140 Dieser Befehl ermöglicht es bis zu 4 Musikstücke auf dem Roomba zu Speichern. Jedes Musikstück kann bis zu 16 Noten enthalten. Die Noten werden hierbei im MIDI Standart definiert. Der Roomba unterstützt die Noten 31-127. Zusätzlich muss zu einer Note noch die Abspielzeit der Note übertragen werden. Diese muss in einer Zahl von 1-255 übertragen werden. 1 entspricht hierbei 1/64 Sekunden. [140] [Song Number] [Song Length] [Note Number 1] [Note Duration 1] [Note Number 2] [Note Duration 2], etc. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Erzeugt am Fre Okt 11 2013 18:52:44 für Roomba Library von
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
+  </ul>
+</div>
+</body>
+</html>

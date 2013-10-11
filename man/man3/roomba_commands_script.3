@@ -1,0 +1,59 @@
+.TH "Script Kommmandos" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Script Kommmandos \- 
+.SS "Module"
+
+.in +1c
+.ti -1c
+.RI "\fBScript Events\fP"
+.br
+.in -1c
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROOMBA_SCRIPT\fP   152"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SCRPTT_PLAY\fP   153"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SCRIPT_SHOW\fP   154"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_TIME\fP   155"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_DISTANCE\fP   156"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_ANGLE\fP   157"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_WAIT_EVENT\fP   158"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+Auf dem Roomba 780 nicht verfügbar 
+.SH "Makro-Dokumentation"
+.PP 
+.SS "#define ROOMBA_SCRIPT   152"
+Definiert ein Script\&. Die Länge kann hier 0 - 100 sein\&. 0 ist um das Script zu löschen\&. Syntax: [152] [Script Length] [Opcode 1] [Opcode 2] [Opcode 3] etc\&. 
+.SS "#define ROOMBA_SCRIPT_SHOW   154"
+Zeigt das aktuelle Script an 
+.SS "#define ROOMBA_SCRPTT_PLAY   153"
+Startet gespeichertes Script 
+.SS "#define ROOMBA_WAIT_ANGLE   157"
+Wartet bis der Roomba eine bestimmte Winkel zurückgelegt hat\&. Der Winkel wird hierbei im Uhrzeigersinn hochgezählt und gegen den Uhrzeigersinn zurück gezählt\&. Als Eingabe Parameter wird eine 16 Bit Signed Variable in Grad erwartet\&. Syntax: [157] [Angle high byte] [Angle low byte] 
+.SS "#define ROOMBA_WAIT_DISTANCE   156"
+Wartet bis eine bestimmte Entfernung zurückgelegt worden ist\&. Als Eingabe Parameter wird eine 16 Bit Signed Integer Variable in Millimeter erwartet\&. Beim Vorwärts Fahren wird die Entfernungsvariable hochgezählt und beim Rückwärts Fahren zurück gezählt\&. Syntax: [156] [Distance high byte] [Distance low byte] 
+.SS "#define ROOMBA_WAIT_EVENT   158"
+Wartet bis ein Bestimmtes Ereignis eintritt\&. Die Ereignisse sind sind unten in einer Seeraten Tabelle aufgeführt\&. Um auf ein gegenteiliges Event zu warten\&. Zum Beispiel das der Roomba abgelegt wird Müssen negative Zahlen übertragen werden\&. Beispiel: [158][-5] oder [158] [251] Syntax: [158] [Event number] 
+.SS "#define ROOMBA_WAIT_TIME   155"
+Wartet eine Bestimmte Zeit\&. Eine Einheit entspricht 15 ms Der Wert kann zwischen 0-255 sein\&. Während der Wartezeit kann der Roomba keine Befehle empfangenen! Syntax [155] [time] 
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.

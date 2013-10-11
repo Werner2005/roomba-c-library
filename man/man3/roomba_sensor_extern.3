@@ -1,0 +1,202 @@
+.TH "Externe Sensor Daten" 3 "Fre Okt 11 2013" "Roomba Library" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Externe Sensor Daten \- 
+.SS "Makrodefinitionen"
+
+.in +1c
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_BUMPS_WHEEL_DROPS\fP   7"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_WALL\fP   8"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_LEFT\fP   9"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_FRONT_LEFT\fP   10"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_FRONT_RIGHT\fP   11"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_RIGHT\fP   12"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_VIRTUAL_WALL\fP   13"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_WHEEL_OVERCURRENTS\fP   14"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_DIRT_DETECT\fP   15"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_UNUSED_1\fP   16"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_INFRARED_CHAR_OMMI\fP   17"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_INFRARED_CHAR_LEFT\fP   52"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_INFRARED_CHAR_RIGHT\fP   53"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_BUTTONS\fP   18"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_DISTANCE\fP   19"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_ANGLE\fP   20"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_WALL_SIGNAL\fP   27"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_LEFT\fP   28"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_FRONT_LEFT\fP   29"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_FRONT_RIGHT\fP   30"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_CLIFF_SIGNAL_RIGHT\fP   31"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_UNUSED_2\fP   32"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_UNUSED_3\fP   33"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_VELOCITY\fP   39"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_RADIUS\fP   40"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_VELOCITY_RIGHT\fP   41"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_REQUESTED_VELOCITY_LEFT\fP   42"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_ENCODER_COUNTS_RIGHT\fP   43"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_ENCODER_COUNTS_LEFT\fP   44"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER\fP   45"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_LEFT\fP   46"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_FRONT_LEFT\fP   47"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_CENTER_LEFT\fP   48"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_CENTER_RIGHT\fP   49"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_FRONT_RIGHT\fP   50"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_LIGHT_BUMPER_RIGHT\fP   51"
+.br
+.ti -1c
+.RI "#define \fBROOMBA_SENSOR_STASIS\fP   58"
+.br
+.in -1c
+.SH "Ausführliche Beschreibung"
+.PP 
+
+.SH "Makro-Dokumentation"
+.PP 
+.SS "#define ROOMBA_SENSOR_ANGLE   20"
+Der Winkel in Grad die der Roomba zurückgelegt hat seit dem die letzte Anfrage getätigt worden ist\&. Positive Zahlen bedeutet das der Roomba sich im Uhrzeigersinn gedreht an und negative Zahlen das der Roomba sich gegen den Uhrzeigersinn gedreht hat\&. 
+.SS "#define ROOMBA_SENSOR_BUMPS_WHEEL_DROPS   7"
+Gibt Information darüber ob der Roomba gegen ein Gegenstand gefahren ist oder einer Seiner Räder sich nicht am Boden befindet\&. Die Information erhält eine 8 Bit Maske mit folgendem Inhalt: Reserved&Reserved&Reserved&Wheeldrop Center&Wheeldrop Left&Wheeldrop Rigth&Bump Left&Bump Rigth Syntax: [7] [8-Bit-Bitmask] 
+.SS "#define ROOMBA_SENSOR_BUTTONS   18"
+Gibt Information über die Aktuell gedrückt Tasten des Roomba's an\&. Übertragen wird eine 8-Bit-Maske Syntax: Clock&Schedule&Day&Hour&Minute&Dock&Spot&Clean 
+.SS "#define ROOMBA_SENSOR_CLIFF_FRONT_LEFT   10"
+Zeigt an ob der Roomba an der Vorderen Linken Seite eine Klippe entdeckt hat\&. 
+.SS "#define ROOMBA_SENSOR_CLIFF_FRONT_RIGHT   11"
+Zeigt an ob der Roomba an der Vorderen Rechten Seite eine Klippe entdeckt hat\&. 
+.SS "#define ROOMBA_SENSOR_CLIFF_LEFT   9"
+Zeigt an ob der Roomba an der Linken Seite eine Klippe entdeckt hat\&. 
+.SS "#define ROOMBA_SENSOR_CLIFF_RIGHT   12"
+Zeigt an ob der Roomba an der Rechten Seite eine Klippe entdeckt hat\&. 
+.SS "#define ROOMBA_SENSOR_CLIFF_SIGNAL_FRONT_LEFT   29"
+Stärke des Vorderen Linken Klippen Signal\&. Gibt einen 16- Bit Wert zurück von 0-4095 Syntax: [28] [High- Byte] [Low- Byte] 
+.SS "#define ROOMBA_SENSOR_CLIFF_SIGNAL_FRONT_RIGHT   30"
+Stärke des Vorderen Rechten Klippen Signal\&. Gibt einen 16- Bit Wert zurück von 0-4095 Syntax: [28] [High- Byte] [Low- Byte] 
+.SS "#define ROOMBA_SENSOR_CLIFF_SIGNAL_LEFT   28"
+Stärke des Linken Klippen Signal\&. Gibt einen 16- Bit Wert zurück von 0-4095 Syntax: [28] [High- Byte] [Low- Byte] 
+.SS "#define ROOMBA_SENSOR_CLIFF_SIGNAL_RIGHT   31"
+Stärke des Rechten Klippen Signal\&. Gibt einen 16- Bit Wert zurück von 0-4095 Syntax: [28] [High- Byte] [Low- Byte] 
+.SS "#define ROOMBA_SENSOR_DIRT_DETECT   15"
+Zeigt den Verschmutzheitsgrad an\&. Es handelt sich um ein 8 Bit Wert von 0 - 255 
+.SS "#define ROOMBA_SENSOR_DISTANCE   19"
+Die Entfernung in Millimeter die der Rommmba zurückgelegt hat seit dem die letzte Anfrage getätigt worden ist\&. Die Entfernung wird berechnet in dem der Weg der das Linke Rad und das Rechte Rad zurückgelegt hat durch zwei dividiert\&. Übertragen wird ein 16 Bit Wert von -32768 - 32767 Syntax: [19] [High- Byte] [Low- Byte] 
+.SS "#define ROOMBA_SENSOR_ENCODER_COUNTS_LEFT   44"
+RAW Daten des Linken Ecncoders\&. Liefert einen 16 Bit Wert von 0 - 65535\&. Syntax [43] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_ENCODER_COUNTS_RIGHT   43"
+RAW Daten des Rechten Ecncoders\&. Liefert einen 16 Bit Wert von 0 - 65535\&. Syntax [43] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_INFRARED_CHAR_LEFT   52"
+Ein Zeichen das über den Linken IR Empfänger des Roomba empfangenen worden ist\&. 0 Bedeutet das kein Zeichen empfangenen worden ist\&. Die Werte können von 0-255 sein\&. 
+.SS "#define ROOMBA_SENSOR_INFRARED_CHAR_OMMI   17"
+Ein Zeichen das über den IR Empfänger des Roomba empfangenen worden ist\&. 0 Bedeutet das kein Zeichen empfangenen worden ist\&. Die Werte können von 0-255 sein\&. 
+.SS "#define ROOMBA_SENSOR_INFRARED_CHAR_RIGHT   53"
+Ein Zeichen das über den Rechten IR Empfänger des Roomba empfangenen worden ist\&. 0 Bedeutet das kein Zeichen empfangenen worden ist\&. Die Werte können von 0-255 sein\&. 
+.SS "#define ROOMBA_SENSOR_LIGHT_BUMPER   45"
+Gibt eine 8 - Bit - Maske zurück der IR Näherungssensoren zurück\&. Syntax: Reserved&Reserved&Lt Bumper Rigth&Lt Bumper Front Rigth&Lt Bumper Center Right&Lt Bumper Center Left&Lt Bumper Front Left&Lt Bumper Left 
+.SS "#define ROOMBA_SENSOR_LIGHT_BUMPER_CENTER_LEFT   48"
+Stärke des Zentalen Linken IR Näherungssensoren\&. Liefert ein 16 Bit Wert von 0 - 4095 zurück\&. Syntax [48] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_LIGHT_BUMPER_CENTER_RIGHT   49"
+Stärke des Zentalen Rechten IR Näherungssensoren\&. Liefert ein 16 Bit Wert von 0 - 4095 zurück\&. Syntax [49] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_LIGHT_BUMPER_FRONT_LEFT   47"
+Stärke des Vorderen Linken IR Näherungssensoren\&. Liefert ein 16 Bit Wert von 0 - 4095 zurück\&. Syntax [47] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_LIGHT_BUMPER_FRONT_RIGHT   50"
+Stärke des Vorderen Rechten IR Näherungssensoren\&. Liefert ein 16 Bit Wert von 0 - 4095 zurück\&. Syntax [50] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_LIGHT_BUMPER_LEFT   46"
+Stärke des Linken IR Näherungssensoren\&. Liefert ein 16 Bit Wert von 0 - 4095 zurück\&. Syntax [46] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_LIGHT_BUMPER_RIGHT   51"
+Stärke des Vorderen Rechten IR Näherungssensoren\&. Liefert ein 16 Bit Wert von 0 - 4095 zurück\&. Syntax [51] [High Byte] [Low Byte] 
+.SS "#define ROOMBA_SENSOR_REQUESTED_RADIUS   40"
+Gibt den Radius an der mit Hilfe des Drive Befehls gesetzt worden ist zurück\&. 
+.SS "#define ROOMBA_SENSOR_REQUESTED_VELOCITY   39"
+Gibt den Aktuellen Geschwindigkeitwert in Millimeter pro Sekunde zurück\&. Der Wert kann zwischen -500 - 500 mm/s liegen 
+.SS "#define ROOMBA_SENSOR_REQUESTED_VELOCITY_LEFT   42"
+Gibt den Aktellen Geschwindigkeitswert des Linken Rades zurück\&. Der Werkt kann zwischen -500 - 500 mm/s liegen 
+.SS "#define ROOMBA_SENSOR_REQUESTED_VELOCITY_RIGHT   41"
+Gibt den Aktellen Geschwindigkeitswert des Rechten Rades zurück\&. Der Werkt kann zwischen -500 - 500 mm/s liegen 
+.SS "#define ROOMBA_SENSOR_STASIS   58"
+Liefert den Wert des Nachlauf Sensor er liefert 1 wenn der Roomba Vorwärts fährt und 0 Wenn der Roomba sich seitlich oder nicht bewegt\&. 
+.SS "#define ROOMBA_SENSOR_UNUSED_1   16"
+Ungenutzte Byte\&. Dieses Nachricht wird bei den Gruppen Befehlen 0, 1 und 6 gesendet 
+.SS "#define ROOMBA_SENSOR_UNUSED_2   32"
+Unbenutzt 
+.SS "#define ROOMBA_SENSOR_UNUSED_3   33"
+Unbenutzt 
+.SS "#define ROOMBA_SENSOR_VIRTUAL_WALL   13"
+Zeigt an ob der Roomba eine Virtual Wall eindeckt hat 
+.SS "#define ROOMBA_SENSOR_WALL   8"
+Zeigt an ob eine Wand zu sehen(1) ist oder nicht(0) Es wird hierbei ein 1 - Bit Wert übertragen(0=keine wand, 1=Wand gesehen) 
+.SS "#define ROOMBA_SENSOR_WALL_SIGNAL   27"
+Stärke des Wand Signales als 16- Bit Wert\&. Gibt einen Wert von 0-1023 zurück\&. Syntax [27] [High- Byte] [Low- Byte] 
+.SS "#define ROOMBA_SENSOR_WHEEL_OVERCURRENTS   14"
+Zeit an ob einer Der Motoren zu viel Strom zieht\&. Diese Daten werden beim Roomba 500 nicht verwendet\&. Es muss geprüft werden ob der Roomba 700 solche Sensoren hat\&. 
+.SH "Autor"
+.PP 
+Automatisch erzeugt von Doxygen für Roomba Library aus dem Quellcode\&.
