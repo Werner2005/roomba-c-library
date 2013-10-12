@@ -1,7 +1,7 @@
 PROG:=roombaLocalTest
 ROOMBALIBDIR := ..
 ROOMBACONFIG := --enable-short-read --enable-nonblocking
-CFLAGS += -Wall -Werror -ansi -pedantic -I$(ROOMBALIBDIR)/includes -D_BSD_SOURCE 
+CFLAGS += -Wall -Werror -ansi -pedantic -I$(ROOMBALIBDIR)/includes -D_BSD_SOURCE
 CFLAGS += -g
 #CFLAGS += -pg
 #CFLAGS += -fprofile-arcs -ftest-coverage

@@ -22,7 +22,7 @@ AC_PREREQ([2.67])
 AC_REVISION([Version 1.0 11.10.2013])
 AC_COPYRIGHT([Copyright (c) by Andreas Werner <webmaster@andy89.org> Version 1.0 (11.10.2013)])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
-AS_VAR_SET(CFLAGS, "-Wall -Werror -ansi -pedantic -D_BSD_SOURCE -D_POSIX_C_SOURCE=199506L")
+AS_VAR_APPEND(CFLAGS, "-Wall -Werror -ansi -pedantic -D_BSD_SOURCE -D_POSIX_C_SOURCE=199506L")
 AC_SUBST(CFLAGS)
 
 AC_CONFIG_SRCDIR([src])
@@ -80,7 +80,17 @@ AS_VAR_APPEND(CFLAGS, " -g")
 ], AS_VAR_APPEND(CFLAGS, " -Os")) 
 
 # Libary im Nonblocking Modus bauen
-AC_ARG_ENABLE([nonblocking], AS_HELP_STRING([--enable-nonblocking], [Activiert nonblocking mode when sending a command]), AC_DEFINE(ROOMBA_NONBLICKING),)
+AC_ARG_ENABLE([nonblocking], AS_HELP_STRING([--enable-nonblocking], [Activiert nonblocking mode when sending a command]), AC_DEFINE(ROOMBA_NONBLOCKING),)
+
+AC_ARG_VAR([BUFFER_SIZE], [Setting RX Buffer Size[default: 173 Sensor Packets]])
+AS_IF([test "x$ac_cv_env_BUFFER_SIZE_set" == "xset"],[
+	AC_DEFINE_UNQUOTED(ROOMBA_SENSOR_BUFFER_SIZE, [$ac_cv_env_BUFFER_SIZE_value])
+])
+
+AC_ARG_VAR([STREAM_IGNORE], [Sensor stream setting: How many packets should be ignored for buffer overflow.[default: 50 Stream Packets]])
+AS_IF([test "x$ac_cv_env_STREAM_IGNORE_set" == "xset"],[
+	AC_DEFINE_UNQUOTED(ROOMBA_STREAM_IGNORE, [$ac_cv_env_STREAM_IGNORE_value])
+])
 
 AC_CONFIG_FILES([
 Makefile

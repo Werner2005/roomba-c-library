@@ -7,5 +7,5 @@ config.log
 configure.lineno 
 config.status.lineno
 .deps
-Makefile
+./Makefile
 autom4te.cache
