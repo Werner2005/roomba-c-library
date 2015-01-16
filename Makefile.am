@@ -17,7 +17,18 @@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 #THE SOFTWARE.
+ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST = test 
-noinst_LIBRARIES = libroomba.a
-libroomba_a_SOURCES = src/roomba.c src/roomba_command.c src/roomba_extra.c src/roomba_print.c src/roomba_repeat.c src/roomba_sensor_database.c
-libroomba_a_CFLAGS = -I$(srcdir)/includes
+include_HEADERS = includes/roomba.h \
+	includes/roomba_command.h \
+	includes/roomba_contol.h \
+	includes/roomba_def.h \
+	includes/roomba_extra.h \
+	includes/roomba_print.h \
+	includes/roomba_repeat.h \
+	includes/roomba_sensor_database.h \
+	includes/roomba_stream.h
+lib_LTLIBRARIES = libroomba.la
+libroomba_la_SOURCES = src/roomba.c src/roomba_command.c src/roomba_extra.c src/roomba_print.c src/roomba_repeat.c src/roomba_sensor_database.c
+libroomba_la_CFLAGS = -I$(srcdir)/includes
+libroomba_la_LDFLAGS = -version-info 1:0:0

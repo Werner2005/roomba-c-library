@@ -1,17 +1,18 @@
 PROG:=roombaLocalTest
 ROOMBALIBDIR := ..
-ROOMBACONFIG := --enable-short-read --enable-nonblocking
-CFLAGS += -Wall -Werror -ansi -pedantic -I$(ROOMBALIBDIR)/includes -D_BSD_SOURCE
+ROOMBACONFIG := --enable-short-read --enable-nonblocking --prefix $(shell pwd)/installdir CFLAGS=-g
+CFLAGS += -Wall -Werror -ansi -pedantic -I$(ROOMBALIBDIR)/includes -D_BSD_SOURCE -Wl,-rpath -Wl,$(shell pwd)/installdir/lib
 CFLAGS += -g
 #CFLAGS += -pg
 #CFLAGS += -fprofile-arcs -ftest-coverage
-LOADLIBS := -Llib -lroomba
+LOADLIBS := -Linstalldir/lib -lroomba
 
 all:lib/Makefile $(PROG) 
 
 
 $(PROG): roombaLocalTest.o unit.o roombaTest.o roombaCommandTest.o roombaStreamTest.o roombaRepeatTest.o roombaExtraTest.o
 	make -C lib all
+	make -C lib install
 	$(CC) $(CFLAGS) -o $@  $^ $(LOADLIBS)
 lib/Makefile:
 	-@mkdir lib

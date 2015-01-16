@@ -15,6 +15,7 @@
 
 @SET_MAKE@
 
+
 VPATH = @srcdir@
 am__make_dryrun = \
   { \
@@ -52,11 +53,15 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = .
-DIST_COMMON = $(am__configure_deps) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(top_srcdir)/configure config.guess \
-	config.sub depcomp install-sh missing
+DIST_COMMON = $(am__configure_deps) $(include_HEADERS) \
+	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
+	$(top_srcdir)/configure ar-lib compile config.guess config.sub \
+	depcomp install-sh ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/m4/libtool.m4 \
+	$(top_srcdir)/m4/ltoptions.m4 $(top_srcdir)/m4/ltsugar.m4 \
+	$(top_srcdir)/m4/ltversion.m4 $(top_srcdir)/m4/lt~obsolete.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
@@ -64,33 +69,65 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
 mkinstalldirs = $(install_sh) -d
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-LIBRARIES = $(noinst_LIBRARIES)
-AR = ar
-ARFLAGS = cru
-libroomba_a_AR = $(AR) $(ARFLAGS)
-libroomba_a_LIBADD =
-am_libroomba_a_OBJECTS = libroomba_a-roomba.$(OBJEXT) \
-	libroomba_a-roomba_command.$(OBJEXT) \
-	libroomba_a-roomba_extra.$(OBJEXT) \
-	libroomba_a-roomba_print.$(OBJEXT) \
-	libroomba_a-roomba_repeat.$(OBJEXT) \
-	libroomba_a-roomba_sensor_database.$(OBJEXT)
-libroomba_a_OBJECTS = $(am_libroomba_a_OBJECTS)
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
+am__install_max = 40
+am__nobase_strip_setup = \
+  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
+am__nobase_strip = \
+  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
+am__nobase_list = $(am__nobase_strip_setup); \
+  for p in $$list; do echo "$$p $$p"; done | \
+  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
+  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
+    if (++n[$$2] == $(am__install_max)) \
+      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
+    END { for (dir in files) print dir, files[dir] }'
+am__base_list = \
+  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
+  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
+am__uninstall_files_from_dir = { \
+  test -z "$$files" \
+    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
+    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
+         $(am__cd) "$$dir" && rm -f $$files; }; \
+  }
+am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"
+LTLIBRARIES = $(lib_LTLIBRARIES)
+libroomba_la_LIBADD =
+am_libroomba_la_OBJECTS = libroomba_la-roomba.lo \
+	libroomba_la-roomba_command.lo libroomba_la-roomba_extra.lo \
+	libroomba_la-roomba_print.lo libroomba_la-roomba_repeat.lo \
+	libroomba_la-roomba_sensor_database.lo
+libroomba_la_OBJECTS = $(am_libroomba_la_OBJECTS)
+libroomba_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libroomba_la_CFLAGS) \
+	$(CFLAGS) $(libroomba_la_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
-LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libroomba_a_SOURCES)
-DIST_SOURCES = $(libroomba_a_SOURCES)
+LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
+SOURCES = $(libroomba_la_SOURCES)
+DIST_SOURCES = $(libroomba_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
+HEADERS = $(include_HEADERS)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -110,6 +147,7 @@ am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
 distcleancheck_listfiles = find . -type f -print
 ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
+AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -123,24 +161,38 @@ CPPFLAGS = @CPPFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
+DLLTOOL = @DLLTOOL@
+DSYMUTIL = @DSYMUTIL@
+DUMPBIN = @DUMPBIN@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
+FGREP = @FGREP@
 GREP = @GREP@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+LD = @LD@
 LDFLAGS = @LDFLAGS@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
+LIBTOOL = @LIBTOOL@
+LIPO = @LIPO@
+LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
+MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
+NM = @NM@
+NMEDIT = @NMEDIT@
+OBJDUMP = @OBJDUMP@
 OBJEXT = @OBJEXT@
+OTOOL = @OTOOL@
+OTOOL64 = @OTOOL64@
 PACKAGE = @PACKAGE@
 PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
 PACKAGE_NAME = @PACKAGE_NAME@
@@ -150,6 +202,7 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 RANLIB = @RANLIB@
+SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STREAM_IGNORE = @STREAM_IGNORE@
@@ -159,7 +212,9 @@ abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
+ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
+ac_ct_DUMPBIN = @ac_ct_DUMPBIN@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -225,14 +280,26 @@ top_srcdir = @top_srcdir@
 #LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 #THE SOFTWARE.
+ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST = test 
-noinst_LIBRARIES = libroomba.a
-libroomba_a_SOURCES = src/roomba.c src/roomba_command.c src/roomba_extra.c src/roomba_print.c src/roomba_repeat.c src/roomba_sensor_database.c
-libroomba_a_CFLAGS = -I$(srcdir)/includes
+include_HEADERS = includes/roomba.h \
+	includes/roomba_command.h \
+	includes/roomba_contol.h \
+	includes/roomba_def.h \
+	includes/roomba_extra.h \
+	includes/roomba_print.h \
+	includes/roomba_repeat.h \
+	includes/roomba_sensor_database.h \
+	includes/roomba_stream.h
+
+lib_LTLIBRARIES = libroomba.la
+libroomba_la_SOURCES = src/roomba.c src/roomba_command.c src/roomba_extra.c src/roomba_print.c src/roomba_repeat.c src/roomba_sensor_database.c
+libroomba_la_CFLAGS = -I$(srcdir)/includes
+libroomba_la_LDFLAGS = -version-info 1:0:0
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .c .o .obj
+.SUFFIXES: .c .lo .o .obj
 am--refresh: Makefile
 	@:
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
@@ -267,13 +334,40 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
+install-libLTLIBRARIES: $(lib_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
+	list2=; for p in $$list; do \
+	  if test -f $$p; then \
+	    list2="$$list2 $$p"; \
+	  else :; fi; \
+	done; \
+	test -z "$$list2" || { \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(libdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(libdir)" || exit 1; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(libdir)'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(libdir)"; \
+	}
 
-clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
-libroomba.a: $(libroomba_a_OBJECTS) $(libroomba_a_DEPENDENCIES) $(EXTRA_libroomba_a_DEPENDENCIES) 
-	-rm -f libroomba.a
-	$(libroomba_a_AR) libroomba.a $(libroomba_a_OBJECTS) $(libroomba_a_LIBADD)
-	$(RANLIB) libroomba.a
+uninstall-libLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
+	for p in $$list; do \
+	  $(am__strip_dir) \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(libdir)/$$f'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(libdir)/$$f"; \
+	done
+
+clean-libLTLIBRARIES:
+	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
+	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+	  test "$$dir" != "$$p" || dir=.; \
+	  echo "rm -f \"$${dir}/so_locations\""; \
+	  rm -f "$${dir}/so_locations"; \
+	done
+libroomba.la: $(libroomba_la_OBJECTS) $(libroomba_la_DEPENDENCIES) $(EXTRA_libroomba_la_DEPENDENCIES) 
+	$(libroomba_la_LINK) -rpath $(libdir) $(libroomba_la_OBJECTS) $(libroomba_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -281,12 +375,12 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_a-roomba.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_a-roomba_command.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_a-roomba_extra.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_a-roomba_print.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_a-roomba_repeat.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_a-roomba_sensor_database.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_la-roomba.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_la-roomba_command.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_la-roomba_extra.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_la-roomba_print.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_la-roomba_repeat.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libroomba_la-roomba_sensor_database.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -302,89 +396,84 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
-libroomba_a-roomba.o: src/roomba.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba.o -MD -MP -MF $(DEPDIR)/libroomba_a-roomba.Tpo -c -o libroomba_a-roomba.o `test -f 'src/roomba.c' || echo '$(srcdir)/'`src/roomba.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba.Tpo $(DEPDIR)/libroomba_a-roomba.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba.c' object='libroomba_a-roomba.o' libtool=no @AMDEPBACKSLASH@
+.c.lo:
+@am__fastdepCC_TRUE@	$(LTCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/$*.Tpo $(DEPDIR)/$*.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba.o `test -f 'src/roomba.c' || echo '$(srcdir)/'`src/roomba.c
+@am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libroomba_a-roomba.obj: src/roomba.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba.obj -MD -MP -MF $(DEPDIR)/libroomba_a-roomba.Tpo -c -o libroomba_a-roomba.obj `if test -f 'src/roomba.c'; then $(CYGPATH_W) 'src/roomba.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba.Tpo $(DEPDIR)/libroomba_a-roomba.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba.c' object='libroomba_a-roomba.obj' libtool=no @AMDEPBACKSLASH@
+libroomba_la-roomba.lo: src/roomba.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -MT libroomba_la-roomba.lo -MD -MP -MF $(DEPDIR)/libroomba_la-roomba.Tpo -c -o libroomba_la-roomba.lo `test -f 'src/roomba.c' || echo '$(srcdir)/'`src/roomba.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_la-roomba.Tpo $(DEPDIR)/libroomba_la-roomba.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba.c' object='libroomba_la-roomba.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba.obj `if test -f 'src/roomba.c'; then $(CYGPATH_W) 'src/roomba.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba.c'; fi`
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -c -o libroomba_la-roomba.lo `test -f 'src/roomba.c' || echo '$(srcdir)/'`src/roomba.c
 
-libroomba_a-roomba_command.o: src/roomba_command.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_command.o -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_command.Tpo -c -o libroomba_a-roomba_command.o `test -f 'src/roomba_command.c' || echo '$(srcdir)/'`src/roomba_command.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_command.Tpo $(DEPDIR)/libroomba_a-roomba_command.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_command.c' object='libroomba_a-roomba_command.o' libtool=no @AMDEPBACKSLASH@
+libroomba_la-roomba_command.lo: src/roomba_command.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -MT libroomba_la-roomba_command.lo -MD -MP -MF $(DEPDIR)/libroomba_la-roomba_command.Tpo -c -o libroomba_la-roomba_command.lo `test -f 'src/roomba_command.c' || echo '$(srcdir)/'`src/roomba_command.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_la-roomba_command.Tpo $(DEPDIR)/libroomba_la-roomba_command.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_command.c' object='libroomba_la-roomba_command.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_command.o `test -f 'src/roomba_command.c' || echo '$(srcdir)/'`src/roomba_command.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -c -o libroomba_la-roomba_command.lo `test -f 'src/roomba_command.c' || echo '$(srcdir)/'`src/roomba_command.c
 
-libroomba_a-roomba_command.obj: src/roomba_command.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_command.obj -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_command.Tpo -c -o libroomba_a-roomba_command.obj `if test -f 'src/roomba_command.c'; then $(CYGPATH_W) 'src/roomba_command.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_command.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_command.Tpo $(DEPDIR)/libroomba_a-roomba_command.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_command.c' object='libroomba_a-roomba_command.obj' libtool=no @AMDEPBACKSLASH@
+libroomba_la-roomba_extra.lo: src/roomba_extra.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -MT libroomba_la-roomba_extra.lo -MD -MP -MF $(DEPDIR)/libroomba_la-roomba_extra.Tpo -c -o libroomba_la-roomba_extra.lo `test -f 'src/roomba_extra.c' || echo '$(srcdir)/'`src/roomba_extra.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_la-roomba_extra.Tpo $(DEPDIR)/libroomba_la-roomba_extra.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_extra.c' object='libroomba_la-roomba_extra.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_command.obj `if test -f 'src/roomba_command.c'; then $(CYGPATH_W) 'src/roomba_command.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_command.c'; fi`
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -c -o libroomba_la-roomba_extra.lo `test -f 'src/roomba_extra.c' || echo '$(srcdir)/'`src/roomba_extra.c
 
-libroomba_a-roomba_extra.o: src/roomba_extra.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_extra.o -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_extra.Tpo -c -o libroomba_a-roomba_extra.o `test -f 'src/roomba_extra.c' || echo '$(srcdir)/'`src/roomba_extra.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_extra.Tpo $(DEPDIR)/libroomba_a-roomba_extra.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_extra.c' object='libroomba_a-roomba_extra.o' libtool=no @AMDEPBACKSLASH@
+libroomba_la-roomba_print.lo: src/roomba_print.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -MT libroomba_la-roomba_print.lo -MD -MP -MF $(DEPDIR)/libroomba_la-roomba_print.Tpo -c -o libroomba_la-roomba_print.lo `test -f 'src/roomba_print.c' || echo '$(srcdir)/'`src/roomba_print.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_la-roomba_print.Tpo $(DEPDIR)/libroomba_la-roomba_print.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_print.c' object='libroomba_la-roomba_print.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_extra.o `test -f 'src/roomba_extra.c' || echo '$(srcdir)/'`src/roomba_extra.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -c -o libroomba_la-roomba_print.lo `test -f 'src/roomba_print.c' || echo '$(srcdir)/'`src/roomba_print.c
 
-libroomba_a-roomba_extra.obj: src/roomba_extra.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_extra.obj -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_extra.Tpo -c -o libroomba_a-roomba_extra.obj `if test -f 'src/roomba_extra.c'; then $(CYGPATH_W) 'src/roomba_extra.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_extra.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_extra.Tpo $(DEPDIR)/libroomba_a-roomba_extra.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_extra.c' object='libroomba_a-roomba_extra.obj' libtool=no @AMDEPBACKSLASH@
+libroomba_la-roomba_repeat.lo: src/roomba_repeat.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -MT libroomba_la-roomba_repeat.lo -MD -MP -MF $(DEPDIR)/libroomba_la-roomba_repeat.Tpo -c -o libroomba_la-roomba_repeat.lo `test -f 'src/roomba_repeat.c' || echo '$(srcdir)/'`src/roomba_repeat.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_la-roomba_repeat.Tpo $(DEPDIR)/libroomba_la-roomba_repeat.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_repeat.c' object='libroomba_la-roomba_repeat.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_extra.obj `if test -f 'src/roomba_extra.c'; then $(CYGPATH_W) 'src/roomba_extra.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_extra.c'; fi`
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -c -o libroomba_la-roomba_repeat.lo `test -f 'src/roomba_repeat.c' || echo '$(srcdir)/'`src/roomba_repeat.c
 
-libroomba_a-roomba_print.o: src/roomba_print.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_print.o -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_print.Tpo -c -o libroomba_a-roomba_print.o `test -f 'src/roomba_print.c' || echo '$(srcdir)/'`src/roomba_print.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_print.Tpo $(DEPDIR)/libroomba_a-roomba_print.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_print.c' object='libroomba_a-roomba_print.o' libtool=no @AMDEPBACKSLASH@
+libroomba_la-roomba_sensor_database.lo: src/roomba_sensor_database.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -MT libroomba_la-roomba_sensor_database.lo -MD -MP -MF $(DEPDIR)/libroomba_la-roomba_sensor_database.Tpo -c -o libroomba_la-roomba_sensor_database.lo `test -f 'src/roomba_sensor_database.c' || echo '$(srcdir)/'`src/roomba_sensor_database.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_la-roomba_sensor_database.Tpo $(DEPDIR)/libroomba_la-roomba_sensor_database.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_sensor_database.c' object='libroomba_la-roomba_sensor_database.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_print.o `test -f 'src/roomba_print.c' || echo '$(srcdir)/'`src/roomba_print.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_la_CFLAGS) $(CFLAGS) -c -o libroomba_la-roomba_sensor_database.lo `test -f 'src/roomba_sensor_database.c' || echo '$(srcdir)/'`src/roomba_sensor_database.c
 
-libroomba_a-roomba_print.obj: src/roomba_print.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_print.obj -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_print.Tpo -c -o libroomba_a-roomba_print.obj `if test -f 'src/roomba_print.c'; then $(CYGPATH_W) 'src/roomba_print.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_print.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_print.Tpo $(DEPDIR)/libroomba_a-roomba_print.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_print.c' object='libroomba_a-roomba_print.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_print.obj `if test -f 'src/roomba_print.c'; then $(CYGPATH_W) 'src/roomba_print.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_print.c'; fi`
+mostlyclean-libtool:
+	-rm -f *.lo
 
-libroomba_a-roomba_repeat.o: src/roomba_repeat.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_repeat.o -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_repeat.Tpo -c -o libroomba_a-roomba_repeat.o `test -f 'src/roomba_repeat.c' || echo '$(srcdir)/'`src/roomba_repeat.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_repeat.Tpo $(DEPDIR)/libroomba_a-roomba_repeat.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_repeat.c' object='libroomba_a-roomba_repeat.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_repeat.o `test -f 'src/roomba_repeat.c' || echo '$(srcdir)/'`src/roomba_repeat.c
+clean-libtool:
+	-rm -rf .libs _libs
 
-libroomba_a-roomba_repeat.obj: src/roomba_repeat.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_repeat.obj -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_repeat.Tpo -c -o libroomba_a-roomba_repeat.obj `if test -f 'src/roomba_repeat.c'; then $(CYGPATH_W) 'src/roomba_repeat.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_repeat.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_repeat.Tpo $(DEPDIR)/libroomba_a-roomba_repeat.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_repeat.c' object='libroomba_a-roomba_repeat.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_repeat.obj `if test -f 'src/roomba_repeat.c'; then $(CYGPATH_W) 'src/roomba_repeat.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_repeat.c'; fi`
+distclean-libtool:
+	-rm -f libtool config.lt
+install-includeHEADERS: $(include_HEADERS)
+	@$(NORMAL_INSTALL)
+	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	if test -n "$$list"; then \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(includedir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(includedir)" || exit 1; \
+	fi; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_HEADER) $$files '$(DESTDIR)$(includedir)'"; \
+	  $(INSTALL_HEADER) $$files "$(DESTDIR)$(includedir)" || exit $$?; \
+	done
 
-libroomba_a-roomba_sensor_database.o: src/roomba_sensor_database.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_sensor_database.o -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_sensor_database.Tpo -c -o libroomba_a-roomba_sensor_database.o `test -f 'src/roomba_sensor_database.c' || echo '$(srcdir)/'`src/roomba_sensor_database.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_sensor_database.Tpo $(DEPDIR)/libroomba_a-roomba_sensor_database.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_sensor_database.c' object='libroomba_a-roomba_sensor_database.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_sensor_database.o `test -f 'src/roomba_sensor_database.c' || echo '$(srcdir)/'`src/roomba_sensor_database.c
-
-libroomba_a-roomba_sensor_database.obj: src/roomba_sensor_database.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -MT libroomba_a-roomba_sensor_database.obj -MD -MP -MF $(DEPDIR)/libroomba_a-roomba_sensor_database.Tpo -c -o libroomba_a-roomba_sensor_database.obj `if test -f 'src/roomba_sensor_database.c'; then $(CYGPATH_W) 'src/roomba_sensor_database.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_sensor_database.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libroomba_a-roomba_sensor_database.Tpo $(DEPDIR)/libroomba_a-roomba_sensor_database.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='src/roomba_sensor_database.c' object='libroomba_a-roomba_sensor_database.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libroomba_a_CFLAGS) $(CFLAGS) -c -o libroomba_a-roomba_sensor_database.obj `if test -f 'src/roomba_sensor_database.c'; then $(CYGPATH_W) 'src/roomba_sensor_database.c'; else $(CYGPATH_W) '$(srcdir)/src/roomba_sensor_database.c'; fi`
+uninstall-includeHEADERS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(include_HEADERS)'; test -n "$(includedir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(includedir)'; $(am__uninstall_files_from_dir)
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
@@ -602,8 +691,11 @@ distcleancheck: distclean
 	       exit 1; } >&2
 check-am: all-am
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LTLIBRARIES) $(HEADERS)
 installdirs:
+	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(includedir)"; do \
+	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
+	done
 install: install-am
 install-exec: install-exec-am
 install-data: install-data-am
@@ -636,14 +728,15 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-noinstLIBRARIES mostlyclean-am
+clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
+	mostlyclean-am
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf ./$(DEPDIR)
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
-	distclean-tags
+	distclean-libtool distclean-tags
 
 dvi: dvi-am
 
@@ -657,13 +750,13 @@ info: info-am
 
 info-am:
 
-install-data-am:
+install-data-am: install-includeHEADERS
 
 install-dvi: install-dvi-am
 
 install-dvi-am:
 
-install-exec-am:
+install-exec-am: install-libLTLIBRARIES
 
 install-html: install-html-am
 
@@ -694,7 +787,8 @@ maintainer-clean-am: distclean-am maintainer-clean-generic
 
 mostlyclean: mostlyclean-am
 
-mostlyclean-am: mostlyclean-compile mostlyclean-generic
+mostlyclean-am: mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool
 
 pdf: pdf-am
 
@@ -704,24 +798,27 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am:
+uninstall-am: uninstall-includeHEADERS uninstall-libLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am am--refresh check check-am clean \
-	clean-generic clean-noinstLIBRARIES ctags dist dist-all \
-	dist-bzip2 dist-gzip dist-lzip dist-lzma dist-shar dist-tarZ \
-	dist-xz dist-zip distcheck distclean distclean-compile \
-	distclean-generic distclean-tags distcleancheck distdir \
-	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-data install-data-am install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-info install-info-am install-man \
-	install-pdf install-pdf-am install-ps install-ps-am \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
-	tags uninstall uninstall-am
+	clean-generic clean-libLTLIBRARIES clean-libtool ctags dist \
+	dist-all dist-bzip2 dist-gzip dist-lzip dist-lzma dist-shar \
+	dist-tarZ dist-xz dist-zip distcheck distclean \
+	distclean-compile distclean-generic distclean-libtool \
+	distclean-tags distcleancheck distdir distuninstallcheck dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-includeHEADERS install-info install-info-am \
+	install-libLTLIBRARIES install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags uninstall uninstall-am uninstall-includeHEADERS \
+	uninstall-libLTLIBRARIES
 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

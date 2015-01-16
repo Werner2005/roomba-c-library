@@ -27,7 +27,7 @@ THE SOFTWARE.
 #include <roomba.h>
 #include <stdio.h>
 
-/*#define LONG_TEST*/
+#define LONG_TEST
 
 int main(int argc, char** argv){
 	#ifdef LONG_TEST

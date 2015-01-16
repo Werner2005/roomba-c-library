@@ -19,10 +19,11 @@
 #THE SOFTWARE.
 AC_INIT([Roomba-C-Library], [1.0], [webmaster@andy89.org])
 AC_PREREQ([2.67])
+AC_CONFIG_MACRO_DIR([m4])
 AC_REVISION([Version 1.0 11.10.2013])
 AC_COPYRIGHT([Copyright (c) by Andreas Werner <webmaster@andy89.org> Version 1.0 (11.10.2013)])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
-AS_VAR_APPEND(CFLAGS, "-Wall -Werror -ansi -pedantic -D_BSD_SOURCE -D_POSIX_C_SOURCE=199506L")
+AS_VAR_APPEND(CFLAGS, " -Wall -Werror -ansi -pedantic -D_BSD_SOURCE -D_POSIX_C_SOURCE=199506L ")
 AC_SUBST(CFLAGS)
 
 AC_CONFIG_SRCDIR([src])
@@ -67,7 +68,11 @@ AC_CHECK_HEADER([stdarg.h],,AC_MSG_ERROR([stdarg.h not found]))
 
 
 AC_PROG_CC
-AC_PROG_RANLIB
+AM_PROG_AR
+AM_PROG_CC_C_O
+
+#init LIBTOOL
+LT_INIT()
 
 # Read soll so kurtz wie moeglich sein
 # Daten Werden beim erst beim Abfragen verarbeitet und in den Internen Buffer Uebertragen
