@@ -23,7 +23,7 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_REVISION([Version 1.0 11.10.2013])
 AC_COPYRIGHT([Copyright (c) by Andreas Werner <webmaster@andy89.org> Version 1.0 (11.10.2013)])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
-AS_VAR_APPEND(CFLAGS, " -Wall -Werror -ansi -pedantic -D_BSD_SOURCE -D_POSIX_C_SOURCE=199506L ")
+AS_VAR_APPEND(CFLAGS, " -Wall -Werror -ansi -pedantic ")
 AC_SUBST(CFLAGS)
 
 AC_CONFIG_SRCDIR([src])
@@ -74,7 +74,7 @@ AC_CHECK_DECL([usleep], AC_DEFINE(_BSD_SOURCE), [
 ]])
 AC_CHECK_DECL([sigaction],, [
 	AS_UNSET(ac_cv_have_decl_sigaction)
-	AC_CHECK_DECL([sigaction], AC_DEFINE(_POSIX_C_SOURCE), [AC_MSG_ERROR([can not include sigaction])],[[
+	AC_CHECK_DECL([sigaction], AC_DEFINE(_POSIX_C_SOURCE, [199506L]), [AC_MSG_ERROR([can not include sigaction])],[[
 #define _POSIX_C_SOURCE 1
 #include <signal.h>
 	]])
