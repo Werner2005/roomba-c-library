@@ -22,7 +22,7 @@ AC_PREREQ([2.67])
 AC_CONFIG_MACRO_DIR([m4])
 AC_REVISION([Version 1.0 11.10.2013])
 AC_COPYRIGHT([Copyright (c) by Andreas Werner <webmaster@andy89.org> Version 1.0 (11.10.2013)])
-AM_INIT_AUTOMAKE([-Wall -Werror foreign])
+AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 AS_VAR_APPEND(CFLAGS, " -Wall -Werror -ansi -pedantic -D_BSD_SOURCE -D_POSIX_C_SOURCE=199506L ")
 AC_SUBST(CFLAGS)
 
@@ -59,6 +59,26 @@ AC_CONFIG_SRCDIR([test/unit.c])
 AC_CONFIG_SRCDIR([test/unit.h])
 
 AC_CANONICAL_HOST
+
+AC_CHECK_DECL([usleep], AC_DEFINE(_BSD_SOURCE), [
+	#remove Variable in cache
+	AS_UNSET(ac_cv_have_decl_usleep)
+	AC_CHECK_DECL([usleep], AC_DEFINE(_DEFAULT_SOURCE), [AC_MSG_ERROR([can not include usleep])], [[
+#define _DEFAULT_SOURCE
+#include <unistd.h>
+	]]
+	)
+],[[
+#define _BSD_SOURCE
+#include <unistd.h>
+]])
+AC_CHECK_DECL([sigaction],, [
+	AS_UNSET(ac_cv_have_decl_sigaction)
+	AC_CHECK_DECL([sigaction], AC_DEFINE(_POSIX_C_SOURCE), [AC_MSG_ERROR([can not include sigaction])],[[
+#define _POSIX_C_SOURCE 1
+#include <signal.h>
+	]])
+])
 
 AC_CHECK_HEADER([stdint.h],,AC_MSG_ERROR([stdint.h not found]))
 AC_CHECK_HEADER([string.h],,AC_MSG_ERROR([string.h not found]))
